@@ -1,4 +1,4 @@
-@use "responsive" as *;
+@use 'responsive' as *;
 
 :host {
 	display: block;
@@ -43,8 +43,7 @@
 
 		.icon-button {
 			flex: 0 0 auto;
-			border-radius: 0 var(--border-radius-small)
-				var(--border-radius-small) 0;
+			border-radius: 0 var(--border-radius-small) var(--border-radius-small) 0;
 			background-color: var(--color-grey-900);
 			aspect-ratio: 1;
 			width: auto;

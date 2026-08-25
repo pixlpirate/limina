@@ -10,7 +10,7 @@
 		position: relative;
 
 		&,
-		&[aria-pressed="true"],
+		&[aria-pressed='true'],
 		&:hover,
 		&:focus-visible {
 			background-color: var(--color-grey-900);

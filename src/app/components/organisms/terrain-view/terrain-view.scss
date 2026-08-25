@@ -35,15 +35,15 @@
 		pointer-events: none;
 		list-style: none;
 
-		&[data-size="small"] {
+		&[data-size='small'] {
 			font-size: var(--font-size-xsmall);
 		}
 
-		&[data-size="medium"] {
+		&[data-size='medium'] {
 			font-size: var(--font-size-small);
 		}
 
-		&[data-size="large"] {
+		&[data-size='large'] {
 			font-size: var(--font-size-large);
 		}
 	}
@@ -52,7 +52,7 @@
 		position: absolute;
 		width: 0;
 
-		&:not([data-kind="peak"]):not([data-kind="volcano"]) {
+		&:not([data-kind='peak']):not([data-kind='volcano']) {
 			color: var(--color-grey-600);
 			font-style: italic;
 		}
@@ -126,7 +126,7 @@
 			background-color: var(--color-contrast);
 			width: 6px;
 			height: 6px;
-			content: "";
+			content: '';
 		}
 	}
 

@@ -68,9 +68,7 @@
 		border: none;
 		background-color: transparent;
 		padding: 0;
-		width: calc(
-			var(--number-field-height, var(--control-size-small)) * 0.7
-		);
+		width: calc(var(--number-field-height, var(--control-size-small)) * 0.7);
 		min-height: 0;
 		touch-action: none;
 		color: var(--color-grey-400);

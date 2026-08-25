@@ -30,15 +30,15 @@
 			}
 		}
 
-		&[data-status="success"] i {
+		&[data-status='success'] i {
 			color: var(--color-success);
 		}
 
-		&[data-status="warning"] i {
+		&[data-status='warning'] i {
 			color: var(--color-warning);
 		}
 
-		&[data-status="danger"] i {
+		&[data-status='danger'] i {
 			color: var(--color-danger);
 		}
 	}
