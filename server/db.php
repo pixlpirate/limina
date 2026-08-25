@@ -38,5 +38,18 @@ function peaks_db(string $path): PDO
     );
     $db->exec('CREATE INDEX IF NOT EXISTS peaks_lat_lon ON peaks (lat, lon)');
 
+    // Translated names, kept apart because hardly any summit has one: fewer than
+    // one in fourteen carries even an English name, so columns on `peaks` would
+    // be mostly empty. Keyed by language so a lookup touches only the one asked
+    // for.
+    $db->exec(
+        'CREATE TABLE IF NOT EXISTS peak_names (
+            id   TEXT NOT NULL,
+            lang TEXT NOT NULL,
+            name TEXT NOT NULL,
+            PRIMARY KEY (id, lang)
+        ) WITHOUT ROWID'
+    );
+
     return $db;
 }

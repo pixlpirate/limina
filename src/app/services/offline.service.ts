@@ -6,6 +6,7 @@ import { OfflineCacheService } from './offline-cache.service';
 import { fetchSummits, summitRegion } from './peaks.service';
 import { fetchTimezone } from './timezone.service';
 import { ViewpointService } from './viewpoint.service';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Downloads everything the current area needs, at every visibility distance, so
@@ -15,6 +16,7 @@ import { ViewpointService } from './viewpoint.service';
 export class OfflineService {
 	private readonly viewpoint = inject(ViewpointService);
 	private readonly cache = inject(OfflineCacheService);
+	private readonly translate = inject(TranslateService);
 
 	private readonly done = signal(0);
 	private readonly total = signal(0);
@@ -42,7 +44,15 @@ export class OfflineService {
 				// each one asks a different question, and an answer stored under
 				// any other url is one nothing will ever ask for again.
 				const region = summitRegion(origin, radius);
-				await fetchSummits(region.centre, region.radius, controller.signal, this.cache);
+				// In the language on screen, which is the one the stored answer
+				// will be asked for again under.
+				await fetchSummits(
+					region.centre,
+					region.radius,
+					controller.signal,
+					this.cache,
+					this.translate.currentLang() ?? '',
+				);
 				this.done.update((done) => done + 1);
 			}
 

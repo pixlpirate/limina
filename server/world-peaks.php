@@ -21,6 +21,13 @@ require __DIR__ . '/db.php';
 /** Everything that is not a plain summit, and so keeps its own kind. */
 const KINDS = ['volcano', 'mountain_range', 'ridge', 'hill', 'region'];
 
+/**
+ * Languages the app is translated into, and so the `name:xx` tags worth asking
+ * for. Coverage is thin — well under a tenth of summits carry any translation —
+ * which is why they go in a table of their own rather than columns here.
+ */
+const LANGUAGES = ['en', 'fr', 'es', 'it', 'de', 'pt', 'el', 'sv', 'nl'];
+
 if (PHP_SAPI !== 'cli') {
     http_response_code(403);
     exit("This is a command line tool.\n");
@@ -50,7 +57,7 @@ $csvPath = dirname($config['database']) . '/peaks-world.csv';
 const QUERY = <<<'SPARQL'
     PREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>
     PREFIX geo: <http://www.opengis.net/ont/geosparql#>
-    SELECT ?o ?kind ?name ?ele ?geom WHERE {
+    SELECT ?o ?kind ?name ?ele ?geom ?en ?fr ?es ?it ?de ?pt ?el ?sv ?nl WHERE {
       {
         VALUES ?kind { "peak" "volcano" "mountain_range" "ridge" "hill" }
         ?o osmkey:natural ?kind .
@@ -63,6 +70,15 @@ const QUERY = <<<'SPARQL'
       ?o osmkey:name ?name .
       ?o geo:hasGeometry/geo:asWKT ?geom .
       OPTIONAL { ?o osmkey:ele ?ele }
+      OPTIONAL { ?o osmkey:name:en ?en }
+      OPTIONAL { ?o osmkey:name:fr ?fr }
+      OPTIONAL { ?o osmkey:name:es ?es }
+      OPTIONAL { ?o osmkey:name:it ?it }
+      OPTIONAL { ?o osmkey:name:de ?de }
+      OPTIONAL { ?o osmkey:name:pt ?pt }
+      OPTIONAL { ?o osmkey:name:el ?el }
+      OPTIONAL { ?o osmkey:name:sv ?sv }
+      OPTIONAL { ?o osmkey:name:nl ?nl }
     }
     SPARQL;
 
@@ -122,11 +138,15 @@ $db = peaks_db($config['database']);
 // rather than merging into whatever happened to be there before.
 $db->exec('PRAGMA synchronous = OFF');
 $db->exec('DROP TABLE IF EXISTS peaks');
+$db->exec('DROP TABLE IF EXISTS peak_names');
 peaks_db($config['database']);
 
 $insert = $db->prepare(
     'INSERT OR REPLACE INTO peaks (id, name, lat, lon, elevation, kind)
           VALUES (:id, :name, :lat, :lon, :elevation, :kind)'
+);
+$insertName = $db->prepare(
+    'INSERT OR REPLACE INTO peak_names (id, lang, name) VALUES (:id, :lang, :name)'
 );
 
 $handle = fopen($csvPath, 'rb');
@@ -139,6 +159,7 @@ echo 'Loading ... ';
 $started = microtime(true);
 $loaded = 0;
 $skipped = 0;
+$translated = 0;
 
 $db->beginTransaction();
 while (($row = fgetcsv($handle)) !== false) {
@@ -153,8 +174,10 @@ while (($row = fgetcsv($handle)) !== false) {
         continue;
     }
 
+    $id = $reference[1] . '/' . $reference[2];
+
     $insert->execute([
-        ':id' => $reference[1] . '/' . $reference[2],
+        ':id' => $id,
         ':name' => $row[2],
         ':lat' => $point[0],
         ':lon' => $point[1],
@@ -163,6 +186,17 @@ while (($row = fgetcsv($handle)) !== false) {
         // table held before ranges were asked for.
         ':kind' => in_array($row[1], KINDS, true) ? $row[1] : 'peak',
     ]);
+
+    // The translated names follow the five fixed columns, one per language, in
+    // the order they were asked for. Most are empty and are simply not stored.
+    foreach (LANGUAGES as $offset => $language) {
+        $translation = trim($row[5 + $offset] ?? '');
+        if ($translation === '' || $translation === $row[2]) {
+            continue;
+        }
+        $insertName->execute([':id' => $id, ':lang' => $language, ':name' => $translation]);
+        $translated++;
+    }
 
     // Commit in batches so a single transaction never grows unmanageable.
     if (++$loaded % 100000 === 0) {
@@ -181,15 +215,28 @@ if (!isset($options['keep-csv'])) {
     @unlink($csvPath);
 }
 
-printf("%d summits in %.1fs (%d skipped)\n", $loaded, microtime(true) - $started, $skipped);
+printf(
+    "%d summits and %d translated names in %.1fs (%d skipped)\n",
+    $loaded,
+    $translated,
+    microtime(true) - $started,
+    $skipped
+);
 printf(
     "Database holds %d features, %d with an elevation tag.\n",
     (int) $db->query('SELECT COUNT(*) FROM peaks')->fetchColumn(),
     (int) $db->query('SELECT COUNT(*) FROM peaks WHERE elevation IS NOT NULL')->fetchColumn()
 );
 foreach ($db->query('SELECT kind, COUNT(*) n FROM peaks GROUP BY kind ORDER BY n DESC') as $row) {
-    printf("  %-16s %d
-", $row['kind'], $row['n']);
+    printf("  %-16s %d\n", $row['kind'], $row['n']);
+}
+
+echo "Translated names:\n";
+$byLanguage = $db->query(
+    'SELECT lang, COUNT(*) n FROM peak_names GROUP BY lang ORDER BY n DESC'
+);
+foreach ($byLanguage as $row) {
+    printf("  %-16s %d\n", $row['lang'], $row['n']);
 }
 
 /**

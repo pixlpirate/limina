@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * GET peaks.php?lat=45.87&lon=6.88&radius=60000
+ * GET peaks.php?lat=45.87&lon=6.88&radius=60000&lang=fr
  *
  * Returns every named summit within `radius` metres of the point, nearest
  * first. Read-only: the data comes from import.php.
@@ -37,6 +37,14 @@ function fail(int $status, string $message): never
     exit;
 }
 
+/**
+ * Which language to name summits in. Anything unknown, or a summit with no
+ * translation, falls back to the name OpenStreetMap carries locally — which for
+ * a mountain is usually the right one anyway.
+ */
+$language = (string) (filter_input(INPUT_GET, 'lang') ?? '');
+$language = preg_match('/^[a-z]{2}$/', $language) === 1 ? $language : '';
+
 $lat = filter_input(INPUT_GET, 'lat', FILTER_VALIDATE_FLOAT);
 $lon = filter_input(INPUT_GET, 'lon', FILTER_VALIDATE_FLOAT);
 $radius = filter_input(INPUT_GET, 'radius', FILTER_VALIDATE_FLOAT);
@@ -53,7 +61,7 @@ if ($radius === false || $radius === null || $radius <= 0) {
 $radius = min($radius, (float) $config['max_radius']);
 
 if (!is_file($config['database'])) {
-    fail(503, 'The summit database has not been imported yet. Run server/import.php.');
+    fail(503, 'The summit database has not been imported yet. Run server/world-peaks.php.');
 }
 
 const METRES_PER_DEGREE_LAT = 111320.0;
@@ -66,12 +74,14 @@ $lonSpan = $radius / $lonScale;
 try {
     $db = peaks_db($config['database']);
     $statement = $db->prepare(
-        'SELECT id, name, lat, lon, elevation, kind
-           FROM peaks
-          WHERE lat BETWEEN :minLat AND :maxLat
-            AND lon BETWEEN :minLon AND :maxLon'
+        'SELECT p.id, COALESCE(t.name, p.name) AS name, p.lat, p.lon, p.elevation, p.kind
+           FROM peaks p
+           LEFT JOIN peak_names t ON t.id = p.id AND t.lang = :lang
+          WHERE p.lat BETWEEN :minLat AND :maxLat
+            AND p.lon BETWEEN :minLon AND :maxLon'
     );
     $statement->execute([
+        ':lang' => $language,
         ':minLat' => $lat - $latSpan,
         ':maxLat' => $lat + $latSpan,
         ':minLon' => $lon - $lonSpan,

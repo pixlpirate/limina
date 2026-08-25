@@ -54,8 +54,12 @@ php world-peaks.php
 ```
 
 This downloads one CSV of every named summit and landform on Earth and writes
-it to SQLite. Expect roughly 690,000 rows, a 63 MB download, and about 80 MB on
+it to SQLite. Expect roughly 760,000 rows, a 265 MB download, and about 86 MB on
 disk. It takes well under a minute on a reasonable connection.
+
+Translated names are fetched at the same time, into a `peak_names` table keyed
+by summit and language. The languages asked for are listed in `LANGUAGES` at the
+top of `world-peaks.php`; add or remove one there and re-run the loader.
 
 Options:
 
@@ -106,11 +110,12 @@ API somewhere else.
 
 ### `GET peaks.php`
 
-| Parameter | Required | Meaning                        |
-| --------- | -------- | ------------------------------ |
-| `lat`     | yes      | Latitude, −90 to 90            |
-| `lon`     | yes      | Longitude, −180 to 180         |
-| `radius`  | yes      | Metres, capped at `max_radius` |
+| Parameter | Required | Meaning                                   |
+| --------- | -------- | ----------------------------------------- |
+| `lat`     | yes      | Latitude, −90 to 90                       |
+| `lon`     | yes      | Longitude, −180 to 180                    |
+| `radius`  | yes      | Metres, capped at `max_radius`            |
+| `lang`    | no       | Two-letter code, for translated names     |
 
 ```json
 {
@@ -133,13 +138,20 @@ Results are nearest first, trimmed to a true circle, and capped at
 references such as `node/…` or `way/…`, because those id spaces overlap and
 bare numbers would collide.
 
+`lang` returns the `name:xx` OpenStreetMap carries for a summit, falling back to
+its local name — so `lang=fr` gives `Cervin` for the Matterhorn but leaves the
+Aiguille du Midi alone. An unknown code is ignored rather than refused.
+Translations are sparse by nature: of 760,000 features, about 81,000 carry one,
+and English is the best served at 46,000. For most mountains the local name is
+the only name there is, which is usually the one you want anyway.
+
 Indicative timings against the full planet database, in dense terrain:
 
-| Radius | Peaks returned | Time   |
-| ------ | -------------- | ------ |
-| 20 km  | 406            | 35 ms  |
-| 60 km  | 2,988          | 74 ms  |
-| 200 km | 5,000 (capped) | 379 ms |
+| Radius | Peaks returned | Time   | With `lang` |
+| ------ | -------------- | ------ | ----------- |
+| 20 km  | 406            | 35 ms  | 41 ms       |
+| 60 km  | 3,353          | 18 ms  | 31 ms       |
+| 200 km | 5,000 (capped) | 379 ms | 395 ms      |
 
 ### `GET timezone.php`
 

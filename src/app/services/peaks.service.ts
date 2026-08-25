@@ -18,6 +18,7 @@ import { OfflineCacheService, ResponseStore } from './offline-cache.service';
 import { SettingsService } from './settings.service';
 import { TerrainService } from './terrain.service';
 import { ViewpointService } from './viewpoint.service';
+import { TranslateService } from '@ngx-translate/core';
 
 /** One row as the local summit API returns it */
 interface PeaksApiPeak {
@@ -80,12 +81,20 @@ export function summitRegion(origin: LatLon, radius: number): SummitRegion {
 	};
 }
 
-function sameRegion(a?: SummitRegion, b?: SummitRegion): boolean {
+function sameRegion(a?: SummitQuery, b?: SummitQuery): boolean {
 	if (!a || !b) {
 		return a === b;
 	}
-	return a.centre.lat === b.centre.lat && a.centre.lon === b.centre.lon && a.radius === b.radius;
+	return (
+		a.centre.lat === b.centre.lat &&
+		a.centre.lon === b.centre.lon &&
+		a.radius === b.radius &&
+		a.language === b.language
+	);
 }
+
+/** A region, and the language its names should come back in */
+type SummitQuery = SummitRegion & { language: string };
 
 /** A named summit, before viewer geometry */
 type RawPeak = LatLon & { id: string; name: string; elevation: number | null; kind: PeakKind };
@@ -98,15 +107,19 @@ export class PeaksService {
 	private readonly settings = inject(SettingsService);
 	private readonly cache = inject(OfflineCacheService);
 	private readonly warning = inject(DataWarningService);
+	private readonly translate = inject(TranslateService);
 
 	/**
 	 * Held apart from the viewpoint so that moving within one cell is not a
 	 * change: the resource only reloads when this comes out different.
 	 */
-	private readonly region = computed(
+	private readonly region = computed<SummitQuery | undefined>(
 		() =>
 			this.warning.permitted()
-				? summitRegion(this.viewpoint.position(), this.settings.visibility())
+				? {
+						...summitRegion(this.viewpoint.position(), this.settings.visibility()),
+						language: this.translate.currentLang() ?? '',
+					}
 				: undefined,
 		{ equal: sameRegion },
 	);
@@ -114,7 +127,7 @@ export class PeaksService {
 	private readonly summits = resource({
 		params: () => this.region(),
 		loader: ({ params, abortSignal }) =>
-			fetchSummits(params.centre, params.radius, abortSignal, this.cache),
+			fetchSummits(params.centre, params.radius, abortSignal, this.cache, params.language),
 		defaultValue: [] as RawPeak[],
 	});
 
@@ -248,11 +261,17 @@ export async function fetchSummits(
 	radius: number,
 	abortSignal: AbortSignal,
 	cache?: ResponseStore,
+	language = '',
 ): Promise<RawPeak[]> {
 	const url = new URL(environment.peaksApiUrl, globalThis.location?.href);
 	url.searchParams.set('lat', String(origin.lat));
 	url.searchParams.set('lon', String(origin.lon));
 	url.searchParams.set('radius', String(radius));
+	// Part of the url, so each language is stored under its own key rather than
+	// one overwriting another in the offline cache.
+	if (language) {
+		url.searchParams.set('lang', language);
+	}
 	const key = url.toString();
 
 	const stored = await cache?.match(key);
