@@ -1,0 +1,25 @@
+<div class="toast-stack" aria-live="polite">
+	@for (toast of polite(); track toast.id) {
+		<p class="toast-stack__item" [attr.data-status]="toast.status">
+			@if (toast.spinner) {
+				<span class="toast-stack__spinner" aria-hidden="true"></span>
+			} @else if (toast.status) {
+				<i class="{{ icon(toast.status) }}" aria-hidden="true"></i>
+			}
+			{{ toast.message }}
+		</p>
+	}
+</div>
+
+<div class="toast-stack" aria-live="assertive">
+	@for (toast of assertive(); track toast.id) {
+		<p class="toast-stack__item" [attr.data-status]="toast.status">
+			@if (toast.spinner) {
+				<span class="toast-stack__spinner" aria-hidden="true"></span>
+			} @else if (toast.status) {
+				<i class="{{ icon(toast.status) }}" aria-hidden="true"></i>
+			}
+			{{ toast.message }}
+		</p>
+	}
+</div>

@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@components": [
+        "./src/app/components/index.ts"
+      ],
+      "@directives": [
+        "./src/app/directives/index.ts"
+      ],
+      "@factories": [
+        "./src/app/factories/index.ts"
+      ],
+      "@gl": [
+        "./src/app/gl/index.ts"
+      ],
+      "@guards": [
+        "./src/app/guards/index.ts"
+      ],
+      "@interfaces": [
+        "./src/app/interfaces/index.ts"
+      ],
+      "@pipes": [
+        "./src/app/pipes/index.ts"
+      ],
+      "@services": [
+        "./src/app/services/index.ts"
+      ],
+      "@utils": [
+        "./src/app/utils/index.ts"
+      ],
+      "@environments": [
+        "./src/environments/index.ts"
+      ]
+    }
+  }
+}

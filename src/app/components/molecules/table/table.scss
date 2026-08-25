@@ -1,0 +1,226 @@
+@use "responsive" as *;
+
+.table {
+	display: grid;
+	gap: var(--gap-small);
+
+	&__caption {
+		margin: 0;
+		color: var(--color-grey-600);
+		font-size: var(--font-size-xsmall);
+	}
+
+	&__search {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__search-field {
+		display: flex;
+		align-items: center;
+		margin: var(--border-size);
+		outline: var(--border-size) solid var(--color-grey-900);
+		border-radius: var(--border-radius-small);
+		background-color: var(--color-base);
+		height: var(--control-size-small);
+
+		input {
+			margin: 0;
+			outline: none;
+			border: none;
+			background-color: transparent;
+			padding: 0 var(--gap-small);
+			width: min(24rem, 40vw);
+			height: 100%;
+			min-height: 0;
+		}
+
+		.icon-button {
+			flex: 0 0 auto;
+			border-radius: 0 var(--border-radius-small)
+				var(--border-radius-small) 0;
+			aspect-ratio: 1;
+			width: auto;
+			height: 100%;
+		}
+
+		&:focus-within {
+			outline-color: var(--color-accent-1);
+		}
+	}
+
+	&__grid {
+		outline: var(--border-size) solid var(--color-grey-950);
+		outline-offset: calc(var(--border-size) * -1);
+		border-radius: var(--border-radius-medium);
+		border-collapse: separate;
+		border-spacing: 0;
+		background-color: var(--color-grey-950);
+		width: 100%;
+		text-align: left;
+
+		th,
+		td {
+			vertical-align: middle;
+			padding: var(--gap-small) var(--gap-medium);
+		}
+
+		tbody tr:first-child th:first-child {
+			border-top-left-radius: var(--border-radius-medium);
+		}
+		tbody tr:first-child td:last-child {
+			border-top-right-radius: var(--border-radius-medium);
+		}
+		tbody tr:last-child th:first-child {
+			border-bottom-left-radius: var(--border-radius-medium);
+		}
+		tbody tr:last-child td:last-child {
+			border-bottom-right-radius: var(--border-radius-medium);
+		}
+
+		thead {
+			position: sticky;
+			top: 0;
+			outline: var(--border-size) solid var(--color-base);
+			outline-offset: calc(var(--border-size) * -1);
+			background-color: var(--color-base);
+
+			th {
+				outline: var(--border-size) solid var(--color-grey-950);
+				outline-offset: calc(var(--border-size) * -1);
+				background-color: var(--color-grey-950);
+
+				&:first-child {
+					border-top-left-radius: var(--border-radius-medium);
+				}
+				&:last-child {
+					border-top-right-radius: var(--border-radius-medium);
+				}
+			}
+		}
+
+		thead th {
+			vertical-align: bottom;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			color: var(--color-grey-600);
+			font-weight: var(--font-weight-regular);
+		}
+
+		tbody th {
+			color: var(--color-contrast);
+			font-weight: var(--font-weight-normal);
+		}
+
+		tbody td,
+		tbody th {
+			border-bottom: var(--border-size) solid var(--color-grey-950);
+			background-color: var(--color-base);
+		}
+
+		tbody tr:last-child td,
+		tbody tr:last-child th {
+			border-bottom: none;
+		}
+
+		tbody tr:hover td,
+		tbody tr:hover th {
+			background-color: var(--color-grey-900);
+		}
+	}
+
+	&__sort {
+		display: flex;
+		align-items: center;
+		gap: var(--gap-xsmall);
+		border: none;
+		background: none;
+		padding: 0;
+		width: 100%;
+		color: inherit;
+		font: inherit;
+		text-align: left;
+
+		&:hover,
+		&:focus-visible {
+			color: var(--color-contrast);
+		}
+
+		i::before {
+			margin: 0;
+			width: auto;
+		}
+	}
+
+	&__select {
+		display: flex;
+		align-items: center;
+		gap: var(--gap-small);
+		border: none;
+		background: none;
+		padding: 0;
+		color: inherit;
+		line-height: var(--line-height-small);
+		font: inherit;
+		text-align: left;
+	}
+
+	&__label {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 0.5em;
+	}
+
+	&__actions-heading {
+		width: 1%;
+	}
+
+	&__actions {
+		display: block;
+		height: 100%;
+	}
+
+	&__detail {
+		display: block;
+		color: var(--color-grey-600);
+		font-size: var(--font-size-xsmall);
+	}
+
+	&__row-actions {
+		display: inline-flex;
+		flex: 0 0 auto;
+		gap: 0.5em;
+		opacity: 0;
+	}
+
+	tr:hover &__row-actions,
+	tr:focus-within &__row-actions {
+		opacity: 1;
+	}
+
+	@media (hover: none) {
+		&__row-actions {
+			opacity: 1;
+		}
+	}
+}
+
+.table__swatch {
+	display: inline-block;
+	position: relative;
+	flex: 0 0 auto;
+	vertical-align: baseline;
+	margin-right: var(--gap-xsmall);
+	width: 0.85em;
+	height: 0.85em;
+}
+
+.table__grid .is-secondary {
+	display: none;
+}
+
+@include media-query(md) {
+	.table__grid .is-secondary {
+		display: table-cell;
+	}
+}

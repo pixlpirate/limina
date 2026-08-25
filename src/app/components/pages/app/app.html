@@ -1,0 +1,19 @@
+<app-terrain-view />
+@if (onLandscape()) {
+	<app-menu-button />
+	<app-camera-button />
+}
+<app-menu-pane />
+<app-compass-gizmo />
+<app-camera-elevation />
+<div class="app__tools">
+	<app-map-button />
+	<app-locate-button />
+</div>
+<app-conditions-drawer />
+
+<router-outlet />
+
+<app-status-bar />
+<app-modal />
+<app-toast-stack />

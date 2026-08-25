@@ -1,0 +1,38 @@
+<app-panel [heading]="'nav.latLon' | translate" [centred]="true">
+	<form class="lat-lon" [formGroup]="form" (ngSubmit)="flyTo()">
+		<div class="lat-lon__axis">
+			<span class="lat-lon__name" id="lat-label">
+				{{ 'coordinates.latitude' | translate }}
+			</span>
+
+			<app-number-field
+				formControlName="lat"
+				aria-labelledby="lat-label"
+				[min]="-90"
+				[max]="90"
+				[step]="0.0001"
+				[label]="'coordinates.latitude' | translate"
+			/>
+		</div>
+
+		<div class="lat-lon__axis">
+			<span class="lat-lon__name" id="lon-label">
+				{{ 'coordinates.longitude' | translate }}
+			</span>
+
+			<app-number-field
+				formControlName="lon"
+				aria-labelledby="lon-label"
+				[min]="-180"
+				[max]="180"
+				[step]="0.0001"
+				[label]="'coordinates.longitude' | translate"
+			/>
+		</div>
+
+		<button type="submit" class="icon-button lat-lon__fly">
+			<i class="icon-paper-plane" aria-hidden="true"></i>
+			<span class="visually-hidden">{{ 'coordinates.flyTo' | translate }}</span>
+		</button>
+	</form>
+</app-panel>

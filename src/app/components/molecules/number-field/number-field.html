@@ -1,0 +1,47 @@
+<div class="number-field" [class.is-disabled]="disabled()" [class.is-fill]="fill()">
+	<input
+		#field
+		class="number-field__input"
+		type="number"
+		inputmode="decimal"
+		[attr.aria-label]="label() || null"
+		[attr.min]="min()"
+		[attr.max]="max()"
+		[step]="step()"
+		[style.--number-field-width.ch]="width() + 1"
+		[value]="display()"
+		[disabled]="disabled()"
+		(input)="onInput($event)"
+		(blur)="onBlur()"
+	/>
+
+	<div class="number-field__steppers" aria-hidden="true">
+		<button
+			class="number-field__stepper"
+			type="button"
+			tabindex="-1"
+			[disabled]="disabled()"
+			(pointerdown)="press(1, $event)"
+			(pointerup)="release()"
+			(pointercancel)="release()"
+			(keydown)="onKeyDown(1, $event)"
+			(keyup)="release()"
+		>
+			<i class="icon-angle-up"></i>
+		</button>
+
+		<button
+			class="number-field__stepper"
+			type="button"
+			tabindex="-1"
+			[disabled]="disabled()"
+			(pointerdown)="press(-1, $event)"
+			(pointerup)="release()"
+			(pointercancel)="release()"
+			(keydown)="onKeyDown(-1, $event)"
+			(keyup)="release()"
+		>
+			<i class="icon-angle-down"></i>
+		</button>
+	</div>
+</div>

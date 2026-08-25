@@ -1,0 +1,45 @@
+@if (request(); as modal) {
+	<div class="modal__backdrop" (click)="dismiss()"></div>
+
+	<div
+		class="modal"
+		role="alertdialog"
+		aria-modal="true"
+		aria-labelledby="modal-title"
+		[attr.data-status]="modal.status"
+	>
+		<h2 id="modal-title" class="modal__title">{{ modal.title }}</h2>
+
+		@if (modal.status; as status) {
+			<i class="modal__icon {{ icon(modal.status) }}" aria-hidden="true"></i>
+		}
+
+		<p class="modal__message" [innerHTML]="modal.message"></p>
+
+		@if (modal.remember; as label) {
+			<label class="modal__remember">
+				<input
+					type="checkbox"
+					[checked]="remembered()"
+					(change)="remembered.set($any($event.target).checked)"
+				/>
+				{{ label }}
+			</label>
+		}
+
+		<div class="modal__actions">
+			@for (action of modal.actions; track action.id) {
+				<button
+					#choice
+					type="button"
+					class="button"
+					[class.button--danger]="action.danger"
+					[attr.data-action]="action.id"
+					(click)="answer(action.id)"
+				>
+					{{ action.label }}
+				</button>
+			}
+		</div>
+	</div>
+}

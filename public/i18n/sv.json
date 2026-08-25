@@ -1,0 +1,260 @@
+{
+	"app": {
+		"name": "Limina"
+	},
+	"nav": {
+		"main": "Huvud",
+		"menu": "Meny",
+		"close": "Stäng menyn",
+		"back": "Tillbaka till landskapet",
+		"viewpoint": "Val av utsiktspunkt",
+		"map": "Karta",
+		"coordinates": "Koordinater",
+		"latLon": "Latitud / longitud",
+		"latLonShort": "Lat / Long",
+		"summits": "Synliga toppar",
+		"bookmarks": "Bokmärken",
+		"celestial": "Sol och måne",
+		"settings": "Inställningar",
+		"info": "Information"
+	},
+	"compass": {
+		"points": {
+			"n": "N",
+			"e": "Ö",
+			"s": "S",
+			"w": "V"
+		},
+		"following": "Enhetens orientering på",
+		"manual": "Enhetens orientering av",
+		"noReading": "Inga orienteringsdata",
+		"unsupported": "Enhetens orientering är inte tillgänglig"
+	},
+	"landscape": {
+		"description": "Landskap med {{count}} synliga toppar",
+		"loading": "Laddar terrängen…",
+		"raise": "Höj utsiktspunkten",
+		"lower": "Sänk utsiktspunkten",
+		"locate": "Flytta utsiktspunkten till min position",
+		"openMap": "Välj en utsiktspunkt på kartan",
+		"myPosition": "Min position",
+		"showCamera": "Visa kameran bakom landskapet",
+		"hideCamera": "Dölj kameran",
+		"cameraUnavailable": "Kameran är inte tillgänglig"
+	},
+	"conditions": {
+		"title": "Siktförhållanden",
+		"date": "Datum",
+		"time": "Tid",
+		"timeOfDay": "Tid på dygnet",
+		"visibility": "Sikt",
+		"visibilityDistance": "Siktavstånd",
+		"visibilitySet": "Sikten satt till {{distance}}",
+		"dateSet": "Datum satt till {{date}}",
+		"timeSet": "Tid satt till {{time}}",
+		"bookmarkSpot": "Spara den här platsen",
+		"nameSpot": "Ge platsen ett namn",
+		"saveBookmark": "Spara bokmärket",
+		"bookmarked": "{{name}} sparad",
+		"followingClock": "Följer klockan",
+		"held": "Låst",
+		"holdMoment": "Följer klockan. Lås det här ögonblicket.",
+		"followAgain": "Låst. Följ klockan igen."
+	},
+	"table": {
+		"filter": "Filtrera",
+		"startFiltering": "Filtrera tabellen",
+		"stopFiltering": "Sluta filtrera",
+		"empty": "Inget att visa."
+	},
+	"modal": {
+		"confirm": "Är du säker?",
+		"cancel": "Avbryt",
+		"delete": "Ta bort",
+		"continue": "Fortsätt"
+	},
+	"dataWarning": {
+		"title": "Varning om dataanvändning",
+		"message": "3D-landskapet laddar ner flera MB höjddata. Vi rekommenderar Wi-Fi eller ett obegränsat datapaket. Du kan spara ett område från inställningarna via Wi-Fi och se det offline senare.",
+		"remember": "Varna mig inte igen"
+	},
+	"settings": {
+		"sky": "Himmel",
+		"sun": "Sol",
+		"moon": "Måne",
+		"milkyWay": "Vintergatan",
+		"peakNames": "Toppnamn",
+		"showElevation": "Visa höjd",
+		"nameRanges": "Namnge bergskedjor, ryggar och kullar",
+		"peakNameSize": "Storlek på namnen",
+		"size": {
+			"small": "Liten",
+			"medium": "Mellan",
+			"large": "Stor"
+		},
+		"units": "Enheter",
+		"metres": "Meter",
+		"feet": "Fot",
+		"language": "Språk",
+		"offline": "Offline",
+		"offlineNote": "Områden du tittar på sparas när de laddas. Att spara ett område hämtar alla siktavstånd för offlinebruk.",
+		"usage": "{{entries}} objekt sparade, {{megabytes}} MB",
+		"storing": "sparar {{percent}} %",
+		"storeArea": "Spara det här området",
+		"clearStored": "Rensa sparade data",
+		"clearTitle": "Rensa sparade data?",
+		"clearMessage": "Allt som sparats för offline-användning tas bort. Terrängen hämtas på nytt nästa gång du behöver den.",
+		"clearAction": "Rensa",
+		"outline": "Konturer",
+		"outlineWidth": "Konturtjocklek"
+	},
+	"summits": {
+		"name": "Namn",
+		"altitude": "Höjd",
+		"distance": "Avstånd",
+		"direction": "Riktning",
+		"working": "Räknar ut vad som syns…",
+		"none": "Härifrån syns ingenting.",
+		"retry": "Försök igen",
+		"look": "Titta på {{name}}",
+		"flyTo": "Gå till {{name}}"
+	},
+	"bookmarks": {
+		"name": "Namn",
+		"position": "Position",
+		"altitude": "Höjd",
+		"marked": "Sparad",
+		"none": "Inga bokmärken än. Gå tillbaka till landskapsvyn och tryck på bokmärkesikonen i menyn nere till vänster för att skapa ett.",
+		"noMatch": "Inget bokmärke matchar.",
+		"delete": "Ta bort {{name}}",
+		"deleted": "{{name}} borttagen",
+		"deleteTitle": "Ta bort det här bokmärket?",
+		"deleteMessage": "{{name}} tas bort från dina bokmärken.",
+		"unnamed": "Namnlös",
+		"flyTo": "Gå till {{name}}"
+	},
+	"coordinates": {
+		"latitude": "Latitud",
+		"longitude": "Longitud",
+		"northOrSouth": "Nord eller syd",
+		"eastOrWest": "Öst eller väst",
+		"degrees": "Grader",
+		"minutes": "Minuter",
+		"seconds": "Sekunder",
+		"flyTo": "Flyg dit",
+		"outOfRange": "De koordinaterna ligger utanför intervallet"
+	},
+	"map": {
+		"search": "Sök efter en plats",
+		"searchAction": "Sök",
+		"noMatch": "Ingen plats matchar den sökningen",
+		"flyToSelected": "Flyg till den valda punkten",
+		"unavailable": "Platssökningen är inte tillgänglig just nu",
+		"offline": "En internetanslutning krävs för att visa den här kartan."
+	},
+	"celestial": {
+		"sun": "Sol",
+		"moon": "Måne",
+		"sunWithState": "Sol, {{state}}",
+		"moonWithState": "{{state}}, {{percent}} belyst",
+		"lit": "{{percent}} belyst",
+		"step": "Skede",
+		"time": "Tid",
+		"heightInSky": "Höjd på himlen",
+		"direction": "Riktning",
+		"highestToday": "Högsta punkt idag",
+		"distance": "Avstånd",
+		"sunDistance": "149,6 miljoner km",
+		"sunriseHorizon": "Soluppgång – Över horisonten",
+		"sunriseMountains": "Soluppgång – Över bergen",
+		"highestPoint": "Högsta punkt",
+		"sunsetMountains": "Solnedgång – Bakom bergen",
+		"sunsetHorizon": "Solnedgång – Under horisonten",
+		"moonriseHorizon": "Uppgång – Över horisonten",
+		"moonriseMountains": "Uppgång – Över bergen",
+		"moonsetMountains": "Nedgång – Bakom bergen",
+		"moonsetHorizon": "Nedgång – Under horisonten",
+		"state": {
+			"daylight": "Dagsljus",
+			"civil": "Borgerlig skymning",
+			"nautical": "Nautisk skymning",
+			"astronomical": "Astronomisk skymning",
+			"night": "Natt"
+		},
+		"dawn": {
+			"golden": "Gryning – Gyllene timme",
+			"blue": "Gryning – Blå timme",
+			"civil": "Gryning – Borgerlig",
+			"nautical": "Gryning – Nautisk",
+			"astronomical": "Gryning – Astronomisk"
+		},
+		"dusk": {
+			"golden": "Skymning – Gyllene timme",
+			"blue": "Skymning – Blå timme",
+			"civil": "Skymning – Borgerlig",
+			"nautical": "Skymning – Nautisk",
+			"astronomical": "Skymning – Astronomisk"
+		}
+	},
+	"moonPhase": {
+		"new": "Nymåne",
+		"full": "Fullmåne",
+		"firstQuarter": "Första kvarteret",
+		"lastQuarter": "Sista kvarteret",
+		"waxingCrescent": "Tilltagande skära",
+		"waningCrescent": "Avtagande skära",
+		"waxingGibbous": "Tilltagande halvmåne",
+		"waningGibbous": "Avtagande halvmåne"
+	},
+	"errors": {
+		"noGeolocation": "Den här enheten kan inte rapportera sin position",
+		"permissionDenied": "Platsbehörigheten nekades",
+		"noPosition": "Ingen position kunde fastställas",
+		"locateTimeout": "Positionsbestämningen tog för lång tid",
+		"locateFailed": "Positionsbestämningen misslyckades",
+		"summitsUnreachable": "Toppdatabasen går inte att nå",
+		"summitsFailed": "Toppdatabasen svarade med ett fel",
+		"terrainDecode": "Det går inte att avkoda höjdrutorna",
+		"webgl": "WebGL2 krävs för att rita landskapet"
+	},
+	"update": {
+		"title": "Uppdatering tillgänglig",
+		"message": "En ny version är klar. Sparade kartor påverkas inte.",
+		"install": "Uppdatera",
+		"later": "Inte nu"
+	},
+	"info": {
+		"sourceCode": "Källkod på GitHub",
+		"contact": "Hör av dig",
+		"copyLink": "Kopiera en länk till det här avsnittet",
+		"copied": "Länken kopierad",
+		"tools": "Verktyg som används"
+	},
+	"sources": {
+		"intro": "Limina vilar på öppna data och öppna verktyg",
+		"mapterhorn": {
+			"role": "Höjddata",
+			"detail": "Markhöjder över hela världen. De ger terrängen dess form, och är det appen mäter mot för att räkna ut vilka toppar som syns från där du står och när solen klarar en rygg."
+		},
+		"openstreetmap": {
+			"role": "Namn och positioner",
+			"detail": "Namn, position och registrerad höjd för varje topp, bergskedja, rygg och kulle som appen sätter namn på."
+		},
+		"carto": {
+			"role": "Kartrutor",
+			"detail": "Den mörka kartbilden som den platta kartan använder när du väljer utsiktspunkt, framställd ur OpenStreetMap-data."
+		},
+		"nominatim": {
+			"role": "Platssökning",
+			"detail": "En söktjänst som drivs av OpenStreetMap. Den gör om ett inskrivet platsnamn till koordinater som appen kan flytta till."
+		},
+		"maplibre": {
+			"role": "Kartrendering",
+			"detail": "Ritar den platta kartan, och sköter panorering, zoomning och animerade förflyttningar."
+		},
+		"milkyWay": {
+			"role": "Vintergatans form",
+			"detail": "Konturdata som beskriver Vintergatans omriss, uppritade av José R. Vieira. Appen läser dem från kopian som publicerats med Olaf Frohns d3-celestial."
+		}
+	}
+}

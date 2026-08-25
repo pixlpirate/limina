@@ -1,0 +1,18 @@
+@use 'responsive' as *;
+
+:host {
+	display: block;
+	position: fixed;
+	inset: 0;
+	overflow: hidden;
+}
+
+.app__tools {
+	display: flex;
+	position: absolute;
+	right: var(--gap-medium);
+	bottom: var(--gap-medium);
+	flex-direction: column;
+	gap: var(--gap-small);
+	z-index: 2;
+}

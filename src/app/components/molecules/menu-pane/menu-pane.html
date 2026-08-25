@@ -1,0 +1,117 @@
+@if (open()) {
+	<div class="menu-pane__backdrop" (click)="close()"></div>
+
+	<nav id="menu-pane" class="menu-pane" [attr.aria-label]="'nav.main' | translate">
+		<div class="menu-pane__header">
+			<button class="icon-button icon-button--small" type="button" (click)="leave()">
+				<i class="icon-xmark" aria-hidden="true"></i>
+				<span class="visually-hidden">{{ 'nav.close' | translate }}</span>
+			</button>
+
+			<div class="menu-pane__title-container">
+				<img src="/images/logo.svg" alt="" class="menu-pane__logo" />
+				<p class="menu-pane__title">{{ 'app.name' | translate }}</p>
+			</div>
+		</div>
+
+		<ul class="menu-pane__items">
+			<li>
+				<button
+					#firstLink
+					type="button"
+					class="menu-pane__group"
+					aria-controls="viewpoint-methods"
+					[attr.aria-expanded]="viewpointOpen()"
+					(click)="toggleViewpoint()"
+				>
+					<i class="icon-magnifying-glass" aria-hidden="true"></i>
+					<span class="menu-pane__label">{{ 'nav.viewpoint' | translate }}</span>
+					<i
+						class="menu-pane__caret"
+						[class.icon-angle-down]="viewpointOpen()"
+						[class.icon-angle-right]="!viewpointOpen()"
+						aria-hidden="true"
+					></i>
+				</button>
+
+				@if (viewpointOpen()) {
+					<ul id="viewpoint-methods" class="menu-pane__submenu">
+						<li>
+							<a
+								routerLink="/viewpoint/map"
+								routerLinkActive="is-active"
+								(click)="leave()"
+							>
+								<i class="icon-map" aria-hidden="true"></i>
+								<span class="menu-pane__label">
+									{{ 'nav.map' | translate }}
+								</span>
+							</a>
+						</li>
+
+						<li>
+							<a
+								routerLink="/viewpoint/latlon"
+								routerLinkActive="is-active"
+								(click)="leave()"
+							>
+								<i class="icon-location-crosshairs" aria-hidden="true"></i>
+								<span class="menu-pane__label">
+									{{ 'nav.latLonShort' | translate }}
+								</span>
+							</a>
+						</li>
+
+						<li>
+							<a
+								routerLink="/viewpoint/coordinates"
+								routerLinkActive="is-active"
+								(click)="leave()"
+							>
+								<i class="icon-compass" aria-hidden="true"></i>
+								<span class="menu-pane__label">
+									{{ 'nav.coordinates' | translate }}
+								</span>
+							</a>
+						</li>
+					</ul>
+				}
+			</li>
+
+			<li>
+				<a routerLink="/summits" routerLinkActive="is-active" (click)="leave()">
+					<i class="icon-mountain" aria-hidden="true"></i>
+					<span class="menu-pane__label">{{ 'nav.summits' | translate }}</span>
+				</a>
+			</li>
+
+			<li>
+				<a routerLink="/viewpoint/bookmarks" routerLinkActive="is-active" (click)="leave()">
+					<i class="icon-bookmark" aria-hidden="true"></i>
+					<span class="menu-pane__label">{{ 'nav.bookmarks' | translate }}</span>
+				</a>
+			</li>
+
+			<li>
+				<a routerLink="/celestial" routerLinkActive="is-active" (click)="leave()">
+					<i class="icon-sun" aria-hidden="true"></i>
+					<span class="menu-pane__label">{{ 'nav.celestial' | translate }}</span>
+				</a>
+			</li>
+
+			<li>
+				<a routerLink="/settings" routerLinkActive="is-active" (click)="leave()">
+					<i class="icon-gear" aria-hidden="true"></i>
+					<span class="menu-pane__label">{{ 'nav.settings' | translate }}</span>
+				</a>
+			</li>
+		</ul>
+
+		<footer class="menu-pane__footer">
+			<a routerLink="/info" routerLinkActive="is-active" (click)="leave()">
+				<i class="icon-info" aria-hidden="true"></i>
+				<span class="menu-pane__label">{{ 'nav.info' | translate }}</span>
+			</a>
+		</footer>
+	</nav>
+}

@@ -1,0 +1,69 @@
+:host {
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+	z-index: 3;
+	inset: 0;
+	background-color: var(--color-base);
+}
+
+.panel {
+	&__header {
+		display: flex;
+		flex: 0 0 auto;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--gap-small) var(--gap-medium);
+		padding: var(--gap-medium);
+		padding-bottom: var(--gap-small);
+
+		h1 {
+			flex: 0 0 auto;
+			margin: 0;
+			font-size: var(--font-size-h6);
+
+			&:focus,
+			&:focus-visible {
+				outline: none;
+			}
+		}
+	}
+
+	&__back {
+		display: flex;
+		flex: 0 0 auto;
+		align-items: center;
+	}
+
+	&__actions {
+		display: flex;
+		flex: 1 1 auto;
+		justify-content: flex-end;
+		align-items: center;
+		gap: var(--gap-small);
+		min-width: 0;
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	&__body {
+		flex: 1 1 auto;
+		padding: 0 var(--gap-medium) var(--gap-medium) var(--gap-medium);
+		min-height: 0;
+		overflow: auto;
+
+		&.is-flush {
+			padding: 0;
+			overflow: hidden;
+		}
+
+		&.is-centred {
+			display: grid;
+			place-content: safe center;
+			place-items: safe center;
+			padding-block: var(--gap-medium);
+		}
+	}
+}

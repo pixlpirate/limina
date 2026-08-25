@@ -1,0 +1,70 @@
+@if (cameraStream(); as stream) {
+	<video
+		class="terrain-view__feed"
+		autoplay
+		playsinline
+		muted
+		aria-hidden="true"
+		[srcObject]="stream"
+	></video>
+}
+
+<canvas
+	#canvas
+	class="terrain-view__canvas"
+	[class.is-dragging]="dragging()"
+	tabindex="0"
+	role="img"
+	[attr.aria-label]="description()"
+	(pointerdown)="onPointerDown($event)"
+	(pointermove)="onPointerMove($event)"
+	(pointerup)="onPointerUp($event)"
+	(pointercancel)="onPointerUp($event)"
+	(wheel)="onWheel($event)"
+	(keydown)="onKeyDown($event)"
+></canvas>
+
+<ul class="terrain-view__labels" [attr.data-size]="labelSize()" aria-hidden="true">
+	@for (label of labels(); track label.id) {
+		<li
+			class="terrain-view__label"
+			[attr.data-kind]="label.kind"
+			[style.left.px]="label.x"
+			[style.top.px]="label.textY"
+			[style.opacity]="label.opacity"
+		>
+			<span class="terrain-view__label-name">
+				@if (label.icon) {
+					<i class="terrain-view__label-icon {{ label.icon }}" aria-hidden="true"></i>
+				}
+				{{ label.name }}
+				@if (label.detail) {
+					<span class="terrain-view__label-detail">{{ label.detail }}</span>
+				}
+			</span>
+			<span class="terrain-view__label-leader" [style.height.px]="label.leader"></span>
+		</li>
+	}
+</ul>
+
+<ul class="terrain-view__probes" aria-hidden="true">
+	@for (mark of probeMarks(); track mark.id) {
+		<li class="terrain-view__probe" [style.left.px]="mark.x" [style.top.px]="mark.y">
+			<span class="terrain-view__probe-point icon-location-crosshairs"></span>
+			<span class="terrain-view__probe-label">{{ mark.label }}</span>
+		</li>
+	}
+</ul>
+
+<ul class="terrain-view__sky" [style.opacity]="overlay()" aria-hidden="true">
+	@for (label of skyLabels(); track label.id) {
+		<li
+			class="terrain-view__sky-event"
+			[style.left.px]="label.x"
+			[style.top.px]="label.y"
+			[style.color]="label.colour"
+		>
+			<span class="terrain-view__sky-time">{{ label.text }}</span>
+		</li>
+	}
+</ul>

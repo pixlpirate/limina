@@ -1,0 +1,103 @@
+.number-field {
+	display: inline-flex;
+	align-items: stretch;
+	margin: var(--border-size);
+	outline: var(--border-size) solid var(--color-grey-900);
+	border-radius: var(--border-radius-small);
+	background-color: var(--color-base);
+	height: var(--number-field-height, var(--control-size-small));
+
+	&:focus-within {
+		outline-color: var(--color-accent-1);
+	}
+
+	&.is-disabled {
+		opacity: 0.5;
+	}
+
+	/* Sized by its container, with the figures against the left edge like a select. */
+	&.is-fill {
+		display: flex;
+		margin-inline: 0;
+		width: 100%;
+
+		.number-field__input {
+			padding-inline-start: var(--gap-small);
+			width: auto;
+			text-align: left;
+		}
+	}
+
+	&__input {
+		flex: 1 1 auto;
+		/* Firefox draws the native steppers from the system theme and both
+		   engines lay them over the figures, so they go — by every spelling. */
+		appearance: textfield;
+		-moz-appearance: textfield;
+		box-sizing: border-box;
+		margin: 0;
+		outline: none;
+		border: none;
+		padding: 0;
+		width: var(--number-field-width, 2ch);
+		min-width: 0;
+		height: 100%;
+		min-height: 0;
+		color: var(--color-contrast);
+		font-size: var(--number-field-font, var(--font-size-small));
+		font-family: inherit;
+		text-align: center;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			appearance: none;
+			margin: 0;
+		}
+	}
+
+	&__steppers {
+		display: flex;
+		flex: 0 0 auto;
+		flex-direction: column;
+		border-left: var(--border-size) solid var(--color-grey-900);
+	}
+
+	&__stepper {
+		display: flex;
+		flex: 1 1 0;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		border: none;
+		background-color: transparent;
+		padding: 0;
+		width: calc(var(--number-field-height, var(--control-size-small)) * 0.7);
+		min-height: 0;
+		touch-action: none;
+		color: var(--color-grey-400);
+		font-size: 0.6em;
+		line-height: 1;
+		user-select: none;
+
+		&:hover {
+			background-color: var(--color-grey-900);
+			color: var(--color-contrast);
+		}
+
+		&:active {
+			background-color: var(--color-accent-1);
+			color: var(--color-contrast);
+		}
+
+		&:disabled {
+			cursor: not-allowed;
+			background-color: transparent;
+			color: var(--color-grey-800);
+		}
+
+		i::before {
+			margin: 0;
+			width: auto;
+		}
+	}
+}

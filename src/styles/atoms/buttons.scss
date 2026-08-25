@@ -1,0 +1,111 @@
+button {
+	cursor: pointer;
+}
+
+.button {
+	cursor: pointer;
+	border: none;
+	border-radius: var(--border-radius-small);
+	background-color: var(--color-grey-900);
+	padding: var(--gap-small) var(--gap-medium);
+	color: var(--color-contrast);
+
+	&:hover,
+	&:focus-visible {
+		background-color: var(--color-accent-1);
+	}
+
+	&:focus-visible {
+		outline: var(--border-size) solid var(--color-accent-1);
+		outline-offset: var(--border-size);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		background-color: var(--color-grey-950);
+		color: var(--color-grey-700);
+	}
+
+	&--danger {
+		background-color: var(--color-danger);
+
+		&:hover,
+		&:focus-visible {
+			background-color: var(--color-danger-light);
+		}
+
+		&:focus-visible {
+			outline-color: var(--color-danger-light);
+		}
+	}
+}
+
+.icon-action {
+	cursor: pointer;
+	border: none;
+	background: none;
+	padding: 0;
+	color: var(--color-grey-600);
+	font-size: inherit;
+	line-height: 1;
+
+	&:hover,
+	&:focus-visible {
+		color: var(--color-accent-1);
+	}
+
+	i::before {
+		margin: 0;
+		width: auto;
+	}
+}
+
+.icon-button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	border: none;
+	border-radius: 50%;
+	background-color: var(--color-grey-900);
+	padding: 0;
+	width: var(--control-size);
+	height: var(--control-size);
+	color: var(--color-contrast);
+	font-size: var(--font-size-medium);
+
+	&:hover,
+	&:focus-visible {
+		background-color: var(--color-accent-1);
+	}
+
+	&:focus-visible {
+		outline: var(--border-size) solid var(--color-accent-1);
+		outline-offset: var(--border-size);
+	}
+
+	&[aria-pressed="true"],
+	&.is-active {
+		background-color: var(--color-accent-1);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		background-color: var(--color-grey-950);
+		color: var(--color-grey-700);
+	}
+
+	i::before {
+		margin: 0;
+		width: auto;
+	}
+
+	&--light {
+		background-color: var(--color-grey-800);
+	}
+
+	&--small {
+		width: var(--control-size-small);
+		height: var(--control-size-small);
+	}
+}

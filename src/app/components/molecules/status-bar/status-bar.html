@@ -1,0 +1,8 @@
+<div role="status" aria-live="polite">
+	@if (message(); as status) {
+		<p class="status-bar__item" [attr.data-status]="status.kind">
+			<i class="{{ icon(status.kind) }}" aria-hidden="true"></i>
+			{{ status.text }}
+		</p>
+	}
+</div>

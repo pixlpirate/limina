@@ -1,0 +1,13 @@
+:host {
+	display: grid;
+	position: absolute;
+	top: 50%;
+	left: var(--gap-medium);
+	gap: var(--gap-xsmall);
+	translate: 0 -50%;
+	z-index: 2;
+	margin-left: var(--border-size-large);
+	outline: var(--border-size-large) solid var(--color-grey-900);
+	border-radius: var(--border-radius-xlarge);
+	background-color: var(--color-grey-900);
+}

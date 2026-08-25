@@ -1,0 +1,110 @@
+<app-panel [heading]="'nav.coordinates' | translate" [centred]="true">
+	<form class="coordinates" [formGroup]="form" (ngSubmit)="flyTo()">
+		<div class="coordinates__axis">
+			<span class="coordinates__name" id="latitude-label">
+				{{ 'coordinates.latitude' | translate }}
+			</span>
+
+			<div class="coordinates__parts" role="group" aria-labelledby="latitude-label">
+				<label class="coordinates__part">
+					<span class="visually-hidden">
+						{{ 'coordinates.northOrSouth' | translate }}
+					</span>
+
+					<select formControlName="latitudeSign">
+						<option value="N">{{ 'compass.points.n' | translate }}</option>
+						<option value="S">{{ 'compass.points.s' | translate }}</option>
+					</select>
+				</label>
+
+				<div class="coordinates__part">
+					<app-number-field
+						formControlName="latDegrees"
+						[minWidth]="3"
+						[min]="0"
+						[max]="90"
+						[label]="'coordinates.degrees' | translate"
+					/>
+					<span class="coordinates__mark" aria-hidden="true">°</span>
+				</div>
+
+				<div class="coordinates__part">
+					<app-number-field
+						formControlName="latMinutes"
+						[minWidth]="2"
+						[min]="0"
+						[max]="59"
+						[label]="'coordinates.minutes' | translate"
+					/>
+					<span class="coordinates__mark" aria-hidden="true">'</span>
+				</div>
+
+				<div class="coordinates__part">
+					<app-number-field
+						formControlName="latSeconds"
+						[minWidth]="5"
+						[min]="0"
+						[max]="59.99"
+						[label]="'coordinates.seconds' | translate"
+					/>
+					<span class="coordinates__mark" aria-hidden="true">"</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="coordinates__axis">
+			<span class="coordinates__name" id="longitude-label">
+				{{ 'coordinates.longitude' | translate }}
+			</span>
+
+			<div class="coordinates__parts" role="group" aria-labelledby="longitude-label">
+				<label class="coordinates__part">
+					<span class="visually-hidden">{{ 'coordinates.eastOrWest' | translate }}</span>
+
+					<select formControlName="longitudeSign">
+						<option value="E">{{ 'compass.points.e' | translate }}</option>
+						<option value="W">{{ 'compass.points.w' | translate }}</option>
+					</select>
+				</label>
+
+				<div class="coordinates__part">
+					<app-number-field
+						formControlName="lonDegrees"
+						[minWidth]="3"
+						[min]="0"
+						[max]="180"
+						[label]="'coordinates.degrees' | translate"
+					/>
+					<span class="coordinates__mark" aria-hidden="true">°</span>
+				</div>
+
+				<div class="coordinates__part">
+					<app-number-field
+						formControlName="lonMinutes"
+						[minWidth]="2"
+						[min]="0"
+						[max]="59"
+						[label]="'coordinates.minutes' | translate"
+					/>
+					<span class="coordinates__mark" aria-hidden="true">'</span>
+				</div>
+
+				<div class="coordinates__part">
+					<app-number-field
+						formControlName="lonSeconds"
+						[minWidth]="5"
+						[min]="0"
+						[max]="59.99"
+						[label]="'coordinates.seconds' | translate"
+					/>
+					<span class="coordinates__mark" aria-hidden="true">"</span>
+				</div>
+			</div>
+		</div>
+
+		<button type="submit" class="icon-button coordinates__fly">
+			<i class="icon-paper-plane" aria-hidden="true"></i>
+			<span class="visually-hidden">{{ 'coordinates.flyTo' | translate }}</span>
+		</button>
+	</form>
+</app-panel>

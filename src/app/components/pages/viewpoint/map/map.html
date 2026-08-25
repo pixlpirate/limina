@@ -1,0 +1,75 @@
+<app-panel [heading]="'nav.map' | translate" [flush]="true">
+	<form class="viewpoint-map__search" panelActions (submit)="search($event)">
+		<label class="visually-hidden" for="place-search">{{ 'map.search' | translate }}</label>
+
+		<div class="viewpoint-map__field">
+			<input
+				id="place-search"
+				type="text"
+				role="combobox"
+				[placeholder]="'map.search' | translate"
+				aria-autocomplete="list"
+				aria-controls="place-results"
+				[attr.aria-expanded]="results().length > 0"
+				[attr.aria-activedescendant]="activeId()"
+				autocomplete="off"
+				[formControl]="query"
+				(keydown)="onKeyDown($event)"
+			/>
+
+			<button class="icon-button icon-button--small" type="submit" [disabled]="searching()">
+				<i class="icon-magnifying-glass" aria-hidden="true"></i>
+				<span class="visually-hidden">{{ 'map.searchAction' | translate }}</span>
+			</button>
+
+			@if (results().length) {
+				<ul id="place-results" class="viewpoint-map__results" role="listbox">
+					@for (place of results(); track place.id; let index = $index) {
+						<li
+							role="option"
+							[id]="'place-result-' + index"
+							[attr.aria-selected]="index === active()"
+						>
+							<button
+								type="button"
+								class="viewpoint-map__result"
+								[class.is-active]="index === active()"
+								(click)="choose(place)"
+							>
+								{{ place.name }}
+							</button>
+						</li>
+					}
+				</ul>
+			}
+		</div>
+	</form>
+
+	<div class="viewpoint-map__canvas">
+		@if (online()) {
+			<app-location-map [centre]="centre" [selection]="selection()" (picked)="pick($event)" />
+
+			<div class="viewpoint-map__fly">
+				<!-- Rebuilt whenever the point moves, which is what restarts the ping. -->
+				@for (ping of ping(); track ping) {
+					<span class="viewpoint-map__ping" aria-hidden="true"></span>
+				}
+
+				<button
+					type="button"
+					class="icon-button"
+					[disabled]="!selection()"
+					(click)="flyTo()"
+				>
+					<i class="icon-paper-plane" aria-hidden="true"></i>
+					<span class="visually-hidden">{{ 'map.flyToSelected' | translate }}</span>
+				</button>
+			</div>
+		} @else {
+			<p class="viewpoint-map__offline">
+				<i class="icon-circle-info" aria-hidden="true"></i>
+				{{ 'map.offline' | translate }}
+			</p>
+		}
+	</div>
+</app-panel>

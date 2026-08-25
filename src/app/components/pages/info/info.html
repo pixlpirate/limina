@@ -1,0 +1,64 @@
+<app-panel [heading]="'nav.info' | translate">
+	<div class="info">
+		<p class="info__actions">
+			<a
+				class="icon-button"
+				[href]="github"
+				target="_blank"
+				rel="noreferrer noopener"
+				[attr.aria-label]="'info.sourceCode' | translate"
+			>
+				<i class="icon-github" aria-hidden="true"></i>
+			</a>
+
+			<a
+				class="icon-button"
+				[href]="contact"
+				target="_blank"
+				rel="noreferrer noopener"
+				[attr.aria-label]="'info.contact' | translate"
+			>
+				<i class="icon-envelope" aria-hidden="true"></i>
+			</a>
+		</p>
+
+		<section class="info__prose">
+			<markdown [src]="description()" (ready)="anchorHeadings()" />
+		</section>
+
+		<section class="info__prose">
+			<h2>{{ 'info.tools' | translate }}</h2>
+
+			<p>{{ 'sources.intro' | translate }}</p>
+
+			<div class="sources">
+				<ul class="sources__list">
+					@for (tool of tools; track tool.key) {
+						<li class="sources__item">
+							<h3 class="sources__name">
+								<a [href]="tool.url" target="_blank" rel="noreferrer noopener">
+									{{ tool.name }}
+								</a>
+							</h3>
+
+							<p class="sources__role">
+								{{ 'sources.' + tool.key + '.role' | translate }}
+							</p>
+							<p class="sources__detail">
+								{{ 'sources.' + tool.key + '.detail' | translate }}
+							</p>
+
+							@if (tool.credit) {
+								<p class="sources__credit">{{ tool.credit }}</p>
+							}
+						</li>
+					}
+				</ul>
+			</div>
+		</section>
+
+		<section class="info__prose">
+			<markdown [src]="changelog()" (ready)="anchorHeadings()" />
+		</section>
+	</div>
+</app-panel>

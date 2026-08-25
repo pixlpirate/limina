@@ -1,0 +1,141 @@
+<div class="table">
+	@if (searchable()) {
+		<div class="table__search">
+			<div class="table__search-field">
+				@if (searching()) {
+					<input
+						type="text"
+						[placeholder]="'table.filter' | translate"
+						autocomplete="off"
+						[value]="query()"
+						(input)="query.set($any($event.target).value)"
+					/>
+				}
+				<button
+					class="icon-button icon-button--small"
+					type="button"
+					[attr.aria-expanded]="searching()"
+					(click)="toggleSearch()"
+				>
+					<i
+						[class.icon-magnifying-glass]="!searching()"
+						[class.icon-xmark]="searching()"
+						aria-hidden="true"
+					></i>
+					<span class="visually-hidden">
+						{{
+							(searching() ? 'table.stopFiltering' : 'table.startFiltering')
+								| translate
+						}}
+					</span>
+				</button>
+			</div>
+		</div>
+	}
+
+	@if (caption(); as text) {
+		<p class="table__caption">{{ text }}</p>
+	}
+
+	<table class="table__grid">
+		<thead>
+			<tr>
+				@for (column of columns(); track column.key) {
+					<th
+						scope="col"
+						[class.is-secondary]="column.secondary"
+						[attr.aria-sort]="ariaSort(column)"
+					>
+						@if (column.sortable !== false) {
+							<button type="button" class="table__sort" (click)="toggleSort(column)">
+								{{ column.label | translate }}
+								<i class="{{ sortIcon(column) }}" aria-hidden="true"></i>
+							</button>
+						} @else {
+							{{ column.label | translate }}
+						}
+					</th>
+				}
+				@if (actions()) {
+					<th scope="col" class="table__actions-heading"></th>
+				}
+			</tr>
+		</thead>
+
+		<tbody>
+			@for (row of visible(); track $index) {
+				<tr>
+					@for (column of columns(); track column.key) {
+						@if (column.rowHeader) {
+							<th scope="row" [class.is-secondary]="column.secondary">
+								@if (selectable()) {
+									<span class="table__label">
+										<button
+											type="button"
+											class="table__select"
+											(click)="rowSelect.emit(row)"
+										>
+											<span>
+												{{ text(column, row) }}
+												@if (detail(column, row); as note) {
+													<span class="table__detail">{{ note }}</span>
+												}
+											</span>
+										</button>
+										@if (rowActions(); as template) {
+											<span class="table__row-actions">
+												<ng-container
+													*ngTemplateOutlet="
+														template;
+														context: { $implicit: row }
+													"
+												/>
+											</span>
+										}
+									</span>
+								} @else {
+									@if (swatch(column, row); as colour) {
+										<span
+											class="table__swatch"
+											[style.background-color]="colour"
+										></span>
+									}
+									{{ text(column, row) }}
+									@if (detail(column, row); as note) {
+										<span class="table__detail">{{ note }}</span>
+									}
+								}
+							</th>
+						} @else {
+							<td [class.is-secondary]="column.secondary">
+								@if (swatch(column, row); as colour) {
+									<span
+										class="table__swatch"
+										[style.background-color]="colour"
+									></span>
+								}
+								{{ text(column, row) }}
+								@if (detail(column, row); as note) {
+									<span class="table__detail">{{ note }}</span>
+								}
+							</td>
+						}
+					}
+					@if (actions(); as template) {
+						<td class="table__actions">
+							<ng-container
+								*ngTemplateOutlet="template; context: { $implicit: row }"
+							/>
+						</td>
+					}
+				</tr>
+			} @empty {
+				<tr>
+					<td [attr.colspan]="columns().length + (actions() ? 1 : 0)">
+						{{ emptyMessage() | translate }}
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

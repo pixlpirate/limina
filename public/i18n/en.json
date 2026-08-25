@@ -1,0 +1,260 @@
+{
+	"app": {
+		"name": "Limina"
+	},
+	"nav": {
+		"main": "Main",
+		"menu": "Menu",
+		"close": "Close the menu",
+		"back": "Back to the landscape",
+		"viewpoint": "Viewpoint selection",
+		"map": "Map",
+		"coordinates": "Coordinates",
+		"latLon": "Latitude / longitude",
+		"latLonShort": "Lat / Long",
+		"summits": "Visible summits",
+		"bookmarks": "Bookmarks",
+		"celestial": "Sun and moon",
+		"settings": "Settings",
+		"info": "Info"
+	},
+	"compass": {
+		"points": {
+			"n": "N",
+			"e": "E",
+			"s": "S",
+			"w": "W"
+		},
+		"following": "Device orientation on",
+		"manual": "Device orientation off",
+		"noReading": "No orientation reading",
+		"unsupported": "Device orientation unavailable"
+	},
+	"landscape": {
+		"description": "Landscape with {{count}} visible summits",
+		"loading": "Loading terrain…",
+		"raise": "Raise the viewpoint",
+		"lower": "Lower the viewpoint",
+		"locate": "Move the viewpoint to my position",
+		"openMap": "Choose a viewpoint on the map",
+		"myPosition": "My position",
+		"showCamera": "Show the camera behind the landscape",
+		"hideCamera": "Hide the camera",
+		"cameraUnavailable": "The camera is unavailable"
+	},
+	"conditions": {
+		"title": "Viewing conditions",
+		"date": "Date",
+		"time": "Time",
+		"timeOfDay": "Time of day",
+		"visibility": "Visibility",
+		"visibilityDistance": "Visibility distance",
+		"visibilitySet": "Visibility set to {{distance}}",
+		"dateSet": "Date set to {{date}}",
+		"timeSet": "Time set to {{time}}",
+		"bookmarkSpot": "Bookmark this spot",
+		"nameSpot": "Name this spot",
+		"saveBookmark": "Save bookmark",
+		"bookmarked": "Bookmarked {{name}}",
+		"followingClock": "Following the clock",
+		"held": "Held",
+		"holdMoment": "Following the clock. Hold this moment.",
+		"followAgain": "Held. Follow the clock again."
+	},
+	"table": {
+		"filter": "Filter",
+		"startFiltering": "Filter the table",
+		"stopFiltering": "Stop filtering",
+		"empty": "Nothing to show."
+	},
+	"modal": {
+		"confirm": "Are you sure?",
+		"cancel": "Cancel",
+		"delete": "Delete",
+		"continue": "Continue"
+	},
+	"dataWarning": {
+		"title": "Data usage warning",
+		"message": "3D landscape downloads several MB of elevation data. We recommend Wi-Fi or an unlimited data plan. You can save an area from Settings over Wi-Fi to view it offline later.",
+		"remember": "Do not warn me again"
+	},
+	"settings": {
+		"sky": "Sky",
+		"sun": "Sun",
+		"moon": "Moon",
+		"milkyWay": "Milky Way",
+		"peakNames": "Peak names",
+		"showElevation": "Show elevation",
+		"nameRanges": "Name ranges, ridges and hills",
+		"peakNameSize": "Peak name size",
+		"size": {
+			"small": "Small",
+			"medium": "Medium",
+			"large": "Large"
+		},
+		"units": "Units",
+		"metres": "Metres",
+		"feet": "Feet",
+		"language": "Language",
+		"offline": "Offline",
+		"offlineNote": "Viewed areas are stored as they load. Storing an area fetches every visibility distance for offline use.",
+		"usage": "{{entries}} items stored, {{megabytes}} MB",
+		"storing": "storing {{percent}}%",
+		"storeArea": "Store this area",
+		"clearStored": "Clear stored data",
+		"clearTitle": "Clear stored data?",
+		"clearMessage": "Everything stored for offline use will be deleted. The terrain will be fetched again next time you need it.",
+		"clearAction": "Clear",
+		"outline": "Outlines",
+		"outlineWidth": "Outline weight"
+	},
+	"summits": {
+		"name": "Name",
+		"altitude": "Altitude",
+		"distance": "Distance",
+		"direction": "Direction",
+		"working": "Working out what is in sight…",
+		"none": "Nothing is in sight from here.",
+		"retry": "Try again",
+		"look": "Look at {{name}}",
+		"flyTo": "Go to {{name}}"
+	},
+	"bookmarks": {
+		"name": "Name",
+		"position": "Position",
+		"altitude": "Altitude",
+		"marked": "Marked",
+		"none": "No bookmarks yet. To create a bookmark, go back to landscape view and click the bookmark icon in the bottom left menu.",
+		"noMatch": "No bookmark matches that.",
+		"delete": "Delete {{name}}",
+		"deleted": "Deleted {{name}}",
+		"deleteTitle": "Delete this bookmark?",
+		"deleteMessage": "{{name}} will be removed from your bookmarks.",
+		"unnamed": "Unnamed",
+		"flyTo": "Go to {{name}}"
+	},
+	"coordinates": {
+		"latitude": "Latitude",
+		"longitude": "Longitude",
+		"northOrSouth": "North or south",
+		"eastOrWest": "East or west",
+		"degrees": "Degrees",
+		"minutes": "Minutes",
+		"seconds": "Seconds",
+		"flyTo": "Fly to",
+		"outOfRange": "Those coordinates are out of range"
+	},
+	"map": {
+		"search": "Search for a place",
+		"searchAction": "Search",
+		"noMatch": "No place matched that search",
+		"flyToSelected": "Fly to the selected point",
+		"unavailable": "Place search is unavailable right now",
+		"offline": "An internet connection is required to view this map."
+	},
+	"celestial": {
+		"sun": "Sun",
+		"moon": "Moon",
+		"sunWithState": "Sun, {{state}}",
+		"moonWithState": "{{state}}, {{percent}} lit",
+		"lit": "{{percent}} lit",
+		"step": "Step",
+		"time": "Time",
+		"heightInSky": "Height in the sky",
+		"direction": "Direction",
+		"highestToday": "Highest today",
+		"distance": "Distance",
+		"sunDistance": "149.6 million km",
+		"sunriseHorizon": "Sunrise – Above horizon",
+		"sunriseMountains": "Sunrise – Above the mountains",
+		"highestPoint": "Highest point",
+		"sunsetMountains": "Sunset – Behind the mountains",
+		"sunsetHorizon": "Sunset – Below horizon",
+		"moonriseHorizon": "Rise – Above horizon",
+		"moonriseMountains": "Rise – Above the mountains",
+		"moonsetMountains": "Set – Behind the mountains",
+		"moonsetHorizon": "Set – Below horizon",
+		"state": {
+			"daylight": "Daylight",
+			"civil": "Civil twilight",
+			"nautical": "Nautical twilight",
+			"astronomical": "Astronomical twilight",
+			"night": "Night"
+		},
+		"dawn": {
+			"golden": "Dawn – Golden hour",
+			"blue": "Dawn – Blue hour",
+			"civil": "Dawn – Civil",
+			"nautical": "Dawn – Nautical",
+			"astronomical": "Dawn – Astronomical"
+		},
+		"dusk": {
+			"golden": "Dusk – Golden hour",
+			"blue": "Dusk – Blue hour",
+			"civil": "Dusk – Civil",
+			"nautical": "Dusk – Nautical",
+			"astronomical": "Dusk – Astronomical"
+		}
+	},
+	"moonPhase": {
+		"new": "New moon",
+		"full": "Full moon",
+		"firstQuarter": "First quarter",
+		"lastQuarter": "Last quarter",
+		"waxingCrescent": "Waxing crescent",
+		"waningCrescent": "Waning crescent",
+		"waxingGibbous": "Waxing gibbous",
+		"waningGibbous": "Waning gibbous"
+	},
+	"errors": {
+		"noGeolocation": "This device cannot report its position",
+		"permissionDenied": "Location permission was denied",
+		"noPosition": "No position could be determined",
+		"locateTimeout": "Locating timed out",
+		"locateFailed": "Locating failed",
+		"summitsUnreachable": "Summit database is not reachable",
+		"summitsFailed": "The summit database returned an error",
+		"terrainDecode": "Unable to decode elevation tiles",
+		"webgl": "WebGL2 is required to render the landscape"
+	},
+	"update": {
+		"title": "Update available",
+		"message": "A new version is ready. Maps you have saved are not affected.",
+		"install": "Update",
+		"later": "Not now"
+	},
+	"info": {
+		"sourceCode": "Source code on GitHub",
+		"contact": "Get in touch",
+		"copyLink": "Copy a link to this section",
+		"copied": "Link copied",
+		"tools": "Tools used"
+	},
+	"sources": {
+		"intro": "Limina is built on open data and open tools",
+		"mapterhorn": {
+			"role": "Elevation data",
+			"detail": "Ground heights worldwide. These give the terrain its shape, and are what the app measures against to work out which summits are visible from where you stand and when the sun clears a ridge."
+		},
+		"openstreetmap": {
+			"role": "Names and positions",
+			"detail": "The name, position and recorded height of every summit, mountain range, ridge and hill the app labels."
+		},
+		"carto": {
+			"role": "Map tiles",
+			"detail": "The dark map imagery used by the flat map when choosing a viewpoint, drawn from OpenStreetMap data."
+		},
+		"nominatim": {
+			"role": "Place search",
+			"detail": "A search service run by OpenStreetMap. It converts a typed place name into coordinates the app can move to."
+		},
+		"maplibre": {
+			"role": "Map rendering",
+			"detail": "Renders the flat map, and handles panning, zooming and animated moves."
+		},
+		"milkyWay": {
+			"role": "Milky Way shape",
+			"detail": "Contour data describing the outline of the Milky Way, traced by José R. Vieira. The app reads it from the copy published with Olaf Frohn’s d3-celestial."
+		}
+	}
+}

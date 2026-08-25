@@ -1,0 +1,122 @@
+<app-panel [heading]="'nav.celestial' | translate">
+	<form class="celestial__moment" panelActions>
+		<label>
+			<span class="visually-hidden">{{ 'conditions.date' | translate }}</span>
+			<input type="date" [value]="date()" (change)="setDate($any($event.target).value)" />
+		</label>
+		<label>
+			<span class="visually-hidden">{{ 'conditions.time' | translate }}</span>
+			<input type="time" [value]="time()" (change)="setTime($any($event.target).value)" />
+		</label>
+
+		@if (zoneLabel(); as zone) {
+			<span class="celestial__zone">{{ zone }}</span>
+		}
+
+		<button
+			class="icon-button icon-button--small"
+			type="button"
+			[attr.aria-pressed]="!live()"
+			(click)="toggleHold()"
+		>
+			<i [class.icon-lock-open]="live()" [class.icon-lock]="!live()" aria-hidden="true"></i>
+			<span class="visually-hidden">
+				{{ (live() ? 'conditions.holdMoment' : 'conditions.followAgain') | translate }}
+			</span>
+		</button>
+	</form>
+
+	<div class="celestial">
+		<div class="celestial__bodies">
+			<section class="celestial__summary">
+				<div class="celestial__figure">
+					<svg
+						class="celestial__disc"
+						viewBox="-55 -55 110 110"
+						width="96"
+						height="96"
+						role="img"
+						[attr.aria-label]="
+							'celestial.sunWithState' | translate: { state: sun().state }
+						"
+					>
+						<circle class="celestial__disc-dark" r="50" />
+						<circle class="celestial__disc-edge" r="50" />
+						<line class="celestial__disc-edge" x1="-50" y1="0" x2="50" y2="0" />
+						<circle class="celestial__disc-edge" r="21" />
+						<circle
+							class="celestial__sun"
+							[class.is-down]="!sun().up"
+							r="9"
+							[attr.cy]="sun().markerY"
+						/>
+					</svg>
+
+					<div class="celestial__column">
+						<h2 class="celestial__heading">{{ 'celestial.sun' | translate }}</h2>
+						<p class="celestial__state">{{ sun().state }}</p>
+						<dl class="celestial__readings">
+							@for (reading of sun().readings; track reading.label) {
+								<div class="celestial__reading">
+									<dt>{{ reading.label }}</dt>
+									<dd>{{ reading.value }}</dd>
+								</div>
+							}
+						</dl>
+					</div>
+				</div>
+			</section>
+
+			<app-table [columns]="columns" [rows]="sunRows()" />
+
+			<section class="celestial__summary">
+				<div class="celestial__figure">
+					<svg
+						class="celestial__disc"
+						viewBox="-55 -55 110 110"
+						width="96"
+						height="96"
+						role="img"
+						[attr.aria-label]="
+							'celestial.moonWithState'
+								| translate: { state: moon().state, percent: moon().percent }
+						"
+					>
+						<circle class="celestial__disc-dark" r="50" />
+						<g [class.is-waning]="!moon().waxing">
+							<path
+								class="celestial__disc-lit"
+								[attr.d]="
+									'M0 -50 A 50 50 0 0 1 0 50 A ' +
+									moon().terminator +
+									' 50 0 0 ' +
+									(moon().gibbous ? 1 : 0) +
+									' 0 -50 Z'
+								"
+							/>
+						</g>
+						<circle class="celestial__disc-edge" r="50" />
+					</svg>
+
+					<div class="celestial__column">
+						<h2 class="celestial__heading">{{ 'celestial.moon' | translate }}</h2>
+						<p class="celestial__state">
+							{{ moon().state }} ·
+							{{ 'celestial.lit' | translate: { percent: moon().percent } }}
+						</p>
+						<dl class="celestial__readings">
+							@for (reading of moon().readings; track reading.label) {
+								<div class="celestial__reading">
+									<dt>{{ reading.label }}</dt>
+									<dd>{{ reading.value }}</dd>
+								</div>
+							}
+						</dl>
+					</div>
+				</div>
+			</section>
+
+			<app-table [columns]="columns" [rows]="moonRows()" />
+		</div>
+	</div>
+</app-panel>

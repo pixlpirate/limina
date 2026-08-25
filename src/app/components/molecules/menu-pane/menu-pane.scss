@@ -1,0 +1,129 @@
+:host {
+	display: contents;
+}
+
+.menu-pane {
+	display: flex;
+	position: fixed;
+	flex-direction: column;
+	z-index: 5;
+	inset: 0 auto 0 0;
+	background-color: var(--color-base);
+	width: min(32rem, 85vw);
+	height: 100%;
+
+	&__header {
+		display: flex;
+		flex: 0 0 auto;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: var(--gap-medium);
+		border-bottom: var(--border-size) solid var(--color-grey-950);
+		padding: var(--gap-medium);
+	}
+
+	&__title-container {
+		display: flex;
+		position: relative;
+		flex-grow: 1;
+		justify-content: flex-start;
+		align-items: baseline;
+		gap: var(--gap-small);
+		font-size: 2rem;
+	}
+
+	&__title {
+		margin: 0;
+		font-size: 1.4em;
+		line-height: 1;
+	}
+
+	&__logo {
+		width: 1em;
+		height: 1em;
+	}
+
+	&__backdrop {
+		position: fixed;
+		z-index: 4;
+		inset: 0;
+		background-color: rgba(0, 0, 0, 0.75);
+	}
+
+	&__items {
+		flex: 1 1 auto;
+		margin: 0;
+		padding: 0;
+		overflow: auto;
+		list-style: none;
+	}
+
+	&__group,
+	&__items a,
+	&__footer a {
+		display: flex;
+		align-items: center;
+		gap: var(--gap-small);
+		cursor: pointer;
+		border: none;
+		background-color: inherit;
+		padding: var(--gap-small) var(--gap-medium);
+		width: 100%;
+		color: var(--color-contrast);
+		font-size: var(--font-size-medium);
+		line-height: var(--line-height-medium);
+		font-family: var(--font-family-text);
+		text-align: left;
+		text-decoration: none;
+
+		i {
+			color: var(--color-grey-700);
+		}
+
+		&:hover,
+		&:focus-visible {
+			background-color: var(--color-accent-1);
+
+			i {
+				color: var(--color-contrast);
+			}
+		}
+	}
+
+	&__items a,
+	&__footer a {
+		&.is-active {
+			background-color: var(--color-accent-1);
+		}
+	}
+
+	&__label {
+		flex: 1 1 auto;
+	}
+
+	&__icon,
+	&__caret {
+		font-size: 0.8em;
+
+		&::before {
+			margin: 0;
+			width: 1em;
+			text-align: center;
+		}
+	}
+
+	&__submenu {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		a {
+			padding-left: calc(var(--gap-medium) * 2);
+		}
+	}
+
+	&__footer {
+		flex: 0 0 auto;
+		border-top: var(--border-size) solid var(--color-grey-950);
+	}
+}

@@ -1,0 +1,163 @@
+<app-panel [heading]="'nav.settings' | translate">
+	<div class="settings">
+		<fieldset>
+			<legend>
+				<i class="icon-angle-right" aria-hidden="true"></i>
+				{{ 'settings.sky' | translate }}
+			</legend>
+
+			<label>
+				<input type="checkbox" [checked]="showSun()" (change)="toggleBody('sun')" />
+				{{ 'settings.sun' | translate }}
+			</label>
+
+			<label>
+				<input type="checkbox" [checked]="showMoon()" (change)="toggleBody('moon')" />
+				{{ 'settings.moon' | translate }}
+			</label>
+
+			<label>
+				<input type="checkbox" [checked]="showMilkyWay()" (change)="toggleMilkyWay()" />
+				{{ 'settings.milkyWay' | translate }}
+			</label>
+		</fieldset>
+
+		<fieldset>
+			<legend>
+				<i class="icon-angle-right" aria-hidden="true"></i>
+				{{ 'settings.peakNames' | translate }}
+			</legend>
+
+			<label>
+				<input
+					type="checkbox"
+					[checked]="showPeakElevation()"
+					(change)="togglePeakElevation()"
+				/>
+				{{ 'settings.showElevation' | translate }}
+			</label>
+
+			<label>
+				<input type="checkbox" [checked]="showRanges()" (change)="toggleRanges()" />
+				{{ 'settings.nameRanges' | translate }}
+			</label>
+		</fieldset>
+
+		<fieldset>
+			<legend>
+				<i class="icon-angle-right" aria-hidden="true"></i>
+				{{ 'settings.peakNameSize' | translate }}
+			</legend>
+			@for (size of labelSizes; track size) {
+				<label>
+					<input
+						type="radio"
+						name="label-size"
+						[value]="size"
+						[checked]="labelSize() === size"
+						(change)="setLabelSize(size)"
+					/>
+					{{ 'settings.size.' + size | translate }}
+				</label>
+			}
+		</fieldset>
+
+		<fieldset class="settings__outline">
+			<legend>
+				<i class="icon-angle-right" aria-hidden="true"></i>
+				{{ 'settings.outline' | translate }}
+			</legend>
+
+			<app-number-field
+				[formControl]="outlineWidth"
+				[fill]="true"
+				[min]="0"
+				[max]="2"
+				[step]="0.1"
+				[label]="'settings.outlineWidth' | translate"
+			/>
+		</fieldset>
+
+		<fieldset>
+			<legend>
+				<i class="icon-angle-right" aria-hidden="true"></i>
+				{{ 'settings.units' | translate }}
+			</legend>
+
+			<label>
+				<input
+					type="radio"
+					name="units"
+					value="metric"
+					[checked]="units() === 'metric'"
+					(change)="setUnits('metric')"
+				/>
+				{{ 'settings.metres' | translate }}
+			</label>
+
+			<label>
+				<input
+					type="radio"
+					name="units"
+					value="imperial"
+					[checked]="units() === 'imperial'"
+					(change)="setUnits('imperial')"
+				/>
+				{{ 'settings.feet' | translate }}
+			</label>
+		</fieldset>
+
+		<fieldset class="settings__language">
+			<legend>
+				<i class="icon-angle-right" aria-hidden="true"></i>
+				{{ 'settings.language' | translate }}
+			</legend>
+			<select
+				[attr.aria-label]="'settings.language' | translate"
+				(change)="setLanguage($any($event.target).value)"
+			>
+				@for (option of languages; track option.code) {
+					<option [value]="option.code" [selected]="option.code === language()">
+						{{ option.flag }} {{ option.name }}
+					</option>
+				}
+			</select>
+		</fieldset>
+
+		<fieldset class="settings__offline">
+			<legend>
+				<i class="icon-angle-right" aria-hidden="true"></i>
+				{{ 'settings.offline' | translate }}
+			</legend>
+
+			<p class="settings__note">{{ 'settings.offlineNote' | translate }}</p>
+
+			<p aria-live="polite">
+				{{
+					'settings.usage'
+						| translate
+							: { entries: usage().entries, megabytes: megabytes(usage().bytes) }
+				}}
+				@if (storing()) {
+					·
+					{{ 'settings.storing' | translate: { percent: (progress() * 100).toFixed(0) } }}
+				}
+			</p>
+
+			<div class="settings__actions">
+				<button type="button" class="button" [disabled]="storing()" (click)="store()">
+					{{ 'settings.storeArea' | translate }}
+				</button>
+
+				<button
+					type="button"
+					class="button button--danger"
+					[disabled]="storing()"
+					(click)="clear()"
+				>
+					{{ 'settings.clearStored' | translate }}
+				</button>
+			</div>
+		</fieldset>
+	</div>
+</app-panel>

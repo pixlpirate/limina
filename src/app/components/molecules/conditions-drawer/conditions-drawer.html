@@ -1,0 +1,132 @@
+<div id="conditions-tools" class="conditions-drawer__tools" [hidden]="!open()">
+	@for (item of tools; track item.id) {
+		<div class="conditions-drawer__tool">
+			<button
+				class="icon-button icon-button--light icon-button--small"
+				type="button"
+				[attr.aria-pressed]="tool() === item.id"
+				(click)="select(item.id)"
+			>
+				<i class="{{ item.icon }}" aria-hidden="true"></i>
+				<span class="visually-hidden">{{ item.label | translate }}</span>
+			</button>
+
+			@if (tool() === item.id) {
+				<div class="conditions-drawer__panel">
+					@switch (item.id) {
+						@case ('bookmark') {
+							<form class="conditions-drawer__form" (submit)="saveBookmark($event)">
+								<label class="visually-hidden" for="conditions-bookmark">
+									{{ 'conditions.nameSpot' | translate }}
+								</label>
+								<input
+									id="conditions-bookmark"
+									type="text"
+									[placeholder]="'conditions.nameSpot' | translate"
+									autocomplete="off"
+									[value]="draft()"
+									(input)="draft.set($any($event.target).value)"
+								/>
+								<button
+									class="icon-button"
+									type="submit"
+									[disabled]="!draft().trim()"
+								>
+									<i class="icon-check" aria-hidden="true"></i>
+									<span class="visually-hidden">{{
+										'conditions.saveBookmark' | translate
+									}}</span>
+								</button>
+							</form>
+						}
+						@case ('date') {
+							<label class="visually-hidden" for="conditions-date">{{
+								'conditions.date' | translate
+							}}</label>
+							<input
+								id="conditions-date"
+								type="date"
+								[value]="date()"
+								(change)="setDate($any($event.target).value)"
+							/>
+							<button
+								class="icon-button"
+								type="button"
+								[attr.aria-pressed]="!live()"
+								(click)="toggleHold()"
+							>
+								<i
+									[class.icon-lock-open]="live()"
+									[class.icon-lock]="!live()"
+									aria-hidden="true"
+								></i>
+								<span class="visually-hidden">
+									{{
+										(live() ? 'conditions.followingClock' : 'conditions.held')
+											| translate
+									}}
+								</span>
+							</button>
+						}
+						@case ('time') {
+							<label class="visually-hidden" for="conditions-time">{{
+								'conditions.time' | translate
+							}}</label>
+							<input
+								id="conditions-time"
+								type="time"
+								[value]="time()"
+								(change)="setTime($any($event.target).value)"
+							/>
+							<button
+								class="icon-button"
+								type="button"
+								[attr.aria-pressed]="!live()"
+								(click)="toggleHold()"
+							>
+								<i
+									[class.icon-lock-open]="live()"
+									[class.icon-lock]="!live()"
+									aria-hidden="true"
+								></i>
+								<span class="visually-hidden">
+									{{
+										(live() ? 'conditions.followingClock' : 'conditions.held')
+											| translate
+									}}
+								</span>
+							</button>
+						}
+						@case ('visibility') {
+							<label class="visually-hidden" for="conditions-visibility">
+								{{ 'conditions.visibility' | translate }}
+							</label>
+							<select
+								id="conditions-visibility"
+								[value]="visibility()"
+								(change)="setVisibility($any($event.target).value)"
+							>
+								@for (distance of distances; track distance) {
+									<option [value]="distance">
+										{{ distance | length: 'distance' }}
+									</option>
+								}
+							</select>
+						}
+					}
+				</div>
+			}
+		</div>
+	}
+</div>
+
+<button
+	class="icon-button"
+	type="button"
+	aria-controls="conditions-tools"
+	[attr.aria-expanded]="open()"
+	(click)="toggle()"
+>
+	<i class="icon-sliders" aria-hidden="true"></i>
+	<span class="visually-hidden">{{ 'conditions.title' | translate }}</span>
+</button>

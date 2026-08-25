@@ -1,0 +1,43 @@
+@use 'responsive' as *;
+
+.lat-lon {
+	display: grid;
+	gap: var(--gap-medium);
+
+	--number-field-height: calc(var(--control-size-small) * 2);
+	--number-field-font: calc(var(--font-size-small) * 1.8);
+
+	justify-items: center;
+
+	select {
+		height: var(--number-field-height);
+		font-size: var(--number-field-font);
+	}
+
+	@include media-query(md) {
+		grid-template-columns: repeat(2, max-content);
+		align-items: flex-end;
+		gap: var(--gap-medium);
+	}
+
+	&__axis {
+		display: grid;
+		gap: var(--gap-xsmall);
+	}
+
+	&__name {
+		color: var(--color-grey-400);
+		font-size: var(--font-size-small);
+	}
+
+	&__fly {
+		justify-self: center;
+		width: calc(var(--control-size) * 1.5);
+		height: calc(var(--control-size) * 1.5);
+		font-size: var(--font-size-xlarge);
+
+		@include media-query(md) {
+			grid-column: 1 / -1;
+		}
+	}
+}

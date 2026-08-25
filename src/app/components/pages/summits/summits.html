@@ -1,0 +1,34 @@
+<app-panel [heading]="'nav.summits' | translate">
+	@if (error(); as failure) {
+		<p role="alert">{{ failure.message | translate }}</p>
+		<button type="button" class="button" (click)="reload()">
+			{{ 'summits.retry' | translate }}
+		</button>
+	} @else if (loading()) {
+		<p aria-live="polite">{{ 'summits.working' | translate }}</p>
+	} @else {
+		<app-table
+			[columns]="columns"
+			[rows]="summits()"
+			[searchable]="true"
+			[selectable]="true"
+			emptyMessage="summits.none"
+			(rowSelect)="look($event)"
+		>
+			<ng-template #rowActions let-summit>
+				<button type="button" class="icon-action" (click)="look(summit)">
+					<i class="icon-eye" aria-hidden="true"></i>
+					<span class="visually-hidden">
+						{{ 'summits.look' | translate: { name: summit.name } }}
+					</span>
+				</button>
+				<button type="button" class="icon-action" (click)="flyTo(summit)">
+					<i class="icon-paper-plane" aria-hidden="true"></i>
+					<span class="visually-hidden">
+						{{ 'summits.flyTo' | translate: { name: summit.name } }}
+					</span>
+				</button>
+			</ng-template>
+		</app-table>
+	}
+</app-panel>

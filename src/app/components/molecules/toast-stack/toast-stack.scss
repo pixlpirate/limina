@@ -1,0 +1,62 @@
+:host {
+	display: grid;
+	position: fixed;
+	place-content: center;
+	gap: var(--gap-small);
+	inset: 0;
+	pointer-events: none;
+}
+
+.toast-stack {
+	display: grid;
+	justify-items: center;
+	gap: var(--gap-small);
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: var(--gap-small);
+		margin: 0;
+		border-radius: var(--border-radius-medium);
+		background-color: var(--color-grey-900);
+		padding: var(--gap-small) var(--gap-medium);
+
+		i {
+			color: var(--color-info);
+
+			&::before {
+				margin: 0;
+				width: auto;
+			}
+		}
+
+		&[data-status="success"] i {
+			color: var(--color-success);
+		}
+
+		&[data-status="warning"] i {
+			color: var(--color-warning);
+		}
+
+		&[data-status="danger"] i {
+			color: var(--color-danger);
+		}
+	}
+
+	&__spinner {
+		display: block;
+		flex: 0 0 auto;
+		animation: toast-spin 0.9s linear infinite;
+		border: 2px solid var(--color-grey-700);
+		border-top-color: var(--color-accent-1);
+		border-radius: 50%;
+		width: 1em;
+		height: 1em;
+	}
+}
+
+@keyframes toast-spin {
+	to {
+		rotate: 360deg;
+	}
+}

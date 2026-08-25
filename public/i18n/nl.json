@@ -1,0 +1,260 @@
+{
+	"app": {
+		"name": "Limina"
+	},
+	"nav": {
+		"main": "Hoofd",
+		"menu": "Menu",
+		"close": "Menu sluiten",
+		"back": "Terug naar het landschap",
+		"viewpoint": "Uitkijkpunt kiezen",
+		"map": "Kaart",
+		"coordinates": "Coördinaten",
+		"latLon": "Breedte / lengte",
+		"latLonShort": "Lat / Long",
+		"summits": "Zichtbare toppen",
+		"bookmarks": "Bladwijzers",
+		"celestial": "Zon en maan",
+		"settings": "Instellingen",
+		"info": "Informatie"
+	},
+	"compass": {
+		"points": {
+			"n": "N",
+			"e": "O",
+			"s": "Z",
+			"w": "W"
+		},
+		"following": "Apparaatoriëntatie aan",
+		"manual": "Apparaatoriëntatie uit",
+		"noReading": "Geen oriëntatiegegevens",
+		"unsupported": "Apparaatoriëntatie niet beschikbaar"
+	},
+	"landscape": {
+		"description": "Landschap met {{count}} zichtbare toppen",
+		"loading": "Terrein laden…",
+		"raise": "Uitkijkpunt omhoog",
+		"lower": "Uitkijkpunt omlaag",
+		"locate": "Uitkijkpunt naar mijn positie verplaatsen",
+		"openMap": "Kies een uitkijkpunt op de kaart",
+		"myPosition": "Mijn positie",
+		"showCamera": "Toon de camera achter het landschap",
+		"hideCamera": "Verberg de camera",
+		"cameraUnavailable": "De camera is niet beschikbaar"
+	},
+	"conditions": {
+		"title": "Zichtomstandigheden",
+		"date": "Datum",
+		"time": "Tijd",
+		"timeOfDay": "Tijdstip van de dag",
+		"visibility": "Zicht",
+		"visibilityDistance": "Zichtafstand",
+		"visibilitySet": "Zicht ingesteld op {{distance}}",
+		"dateSet": "Datum ingesteld op {{date}}",
+		"timeSet": "Tijd ingesteld op {{time}}",
+		"bookmarkSpot": "Deze plek bewaren",
+		"nameSpot": "Geef deze plek een naam",
+		"saveBookmark": "Bladwijzer opslaan",
+		"bookmarked": "{{name}} bewaard",
+		"followingClock": "Volgt de klok",
+		"held": "Vastgezet",
+		"holdMoment": "Volgt de klok. Dit moment vastzetten.",
+		"followAgain": "Vastgezet. Weer de klok volgen."
+	},
+	"table": {
+		"filter": "Filteren",
+		"startFiltering": "De tabel filteren",
+		"stopFiltering": "Stoppen met filteren",
+		"empty": "Niets te tonen."
+	},
+	"modal": {
+		"confirm": "Weet je het zeker?",
+		"cancel": "Annuleren",
+		"delete": "Verwijderen",
+		"continue": "Doorgaan"
+	},
+	"dataWarning": {
+		"title": "Waarschuwing over dataverbruik",
+		"message": "Het 3D-landschap downloadt enkele MB's aan hoogtegegevens. We raden wifi of een onbeperkte databundel aan. Je kunt een gebied opslaan via de instellingen met wifi om het later offline te bekijken.",
+		"remember": "Waarschuw me niet meer"
+	},
+	"settings": {
+		"sky": "Hemel",
+		"sun": "Zon",
+		"moon": "Maan",
+		"milkyWay": "Melkweg",
+		"peakNames": "Namen van toppen",
+		"showElevation": "Hoogte tonen",
+		"nameRanges": "Bergketens, ruggen en heuvels benoemen",
+		"peakNameSize": "Grootte van de namen",
+		"size": {
+			"small": "Klein",
+			"medium": "Middel",
+			"large": "Groot"
+		},
+		"units": "Eenheden",
+		"metres": "Meter",
+		"feet": "Voet",
+		"language": "Taal",
+		"offline": "Offline",
+		"offlineNote": "Bekeken gebieden worden opgeslagen tijdens het laden. Een gebied opslaan haalt alle zichtafstanden op voor offlinegebruik.",
+		"usage": "{{entries}} items bewaard, {{megabytes}} MB",
+		"storing": "bewaren {{percent}} %",
+		"storeArea": "Dit gebied bewaren",
+		"clearStored": "Bewaarde gegevens wissen",
+		"clearTitle": "Bewaarde gegevens wissen?",
+		"clearMessage": "Alles wat voor offline gebruik is bewaard wordt verwijderd. Het terrein wordt opnieuw opgehaald wanneer je het weer nodig hebt.",
+		"clearAction": "Wissen",
+		"outline": "Contouren",
+		"outlineWidth": "Contourdikte"
+	},
+	"summits": {
+		"name": "Naam",
+		"altitude": "Hoogte",
+		"distance": "Afstand",
+		"direction": "Richting",
+		"working": "Uitrekenen wat er in zicht is…",
+		"none": "Vanaf hier is niets in zicht.",
+		"retry": "Opnieuw proberen",
+		"look": "Kijk naar {{name}}",
+		"flyTo": "Ga naar {{name}}"
+	},
+	"bookmarks": {
+		"name": "Naam",
+		"position": "Positie",
+		"altitude": "Hoogte",
+		"marked": "Bewaard op",
+		"none": "Nog geen bladwijzers. Ga terug naar de landschapsweergave en tik op het bladwijzericoon in het menu linksonder om er een te maken.",
+		"noMatch": "Geen bladwijzer komt overeen.",
+		"delete": "{{name}} verwijderen",
+		"deleted": "{{name}} verwijderd",
+		"deleteTitle": "Deze bladwijzer verwijderen?",
+		"deleteMessage": "{{name}} wordt uit je bladwijzers verwijderd.",
+		"unnamed": "Naamloos",
+		"flyTo": "Ga naar {{name}}"
+	},
+	"coordinates": {
+		"latitude": "Breedtegraad",
+		"longitude": "Lengtegraad",
+		"northOrSouth": "Noord of zuid",
+		"eastOrWest": "Oost of west",
+		"degrees": "Graden",
+		"minutes": "Minuten",
+		"seconds": "Seconden",
+		"flyTo": "Ga erheen",
+		"outOfRange": "Die coördinaten vallen buiten het bereik"
+	},
+	"map": {
+		"search": "Zoek een plaats",
+		"searchAction": "Zoeken",
+		"noMatch": "Geen plaats komt overeen met die zoekopdracht",
+		"flyToSelected": "Ga naar het gekozen punt",
+		"unavailable": "Het zoeken naar plaatsen is op dit moment niet beschikbaar",
+		"offline": "Er is een internetverbinding nodig om deze kaart te bekijken."
+	},
+	"celestial": {
+		"sun": "Zon",
+		"moon": "Maan",
+		"sunWithState": "Zon, {{state}}",
+		"moonWithState": "{{state}}, {{percent}} verlicht",
+		"lit": "{{percent}} verlicht",
+		"step": "Fase",
+		"time": "Tijd",
+		"heightInSky": "Hoogte aan de hemel",
+		"direction": "Richting",
+		"highestToday": "Hoogste punt vandaag",
+		"distance": "Afstand",
+		"sunDistance": "149,6 miljoen km",
+		"sunriseHorizon": "Zonsopkomst – Boven de horizon",
+		"sunriseMountains": "Zonsopkomst – Boven de bergen",
+		"highestPoint": "Hoogste punt",
+		"sunsetMountains": "Zonsondergang – Achter de bergen",
+		"sunsetHorizon": "Zonsondergang – Onder de horizon",
+		"moonriseHorizon": "Opkomst – Boven de horizon",
+		"moonriseMountains": "Opkomst – Boven de bergen",
+		"moonsetMountains": "Ondergang – Achter de bergen",
+		"moonsetHorizon": "Ondergang – Onder de horizon",
+		"state": {
+			"daylight": "Daglicht",
+			"civil": "Burgerlijke schemering",
+			"nautical": "Nautische schemering",
+			"astronomical": "Astronomische schemering",
+			"night": "Nacht"
+		},
+		"dawn": {
+			"golden": "Ochtend – Gouden uur",
+			"blue": "Ochtend – Blauw uur",
+			"civil": "Ochtend – Burgerlijk",
+			"nautical": "Ochtend – Nautisch",
+			"astronomical": "Ochtend – Astronomisch"
+		},
+		"dusk": {
+			"golden": "Avond – Gouden uur",
+			"blue": "Avond – Blauw uur",
+			"civil": "Avond – Burgerlijk",
+			"nautical": "Avond – Nautisch",
+			"astronomical": "Avond – Astronomisch"
+		}
+	},
+	"moonPhase": {
+		"new": "Nieuwe maan",
+		"full": "Volle maan",
+		"firstQuarter": "Eerste kwartier",
+		"lastQuarter": "Laatste kwartier",
+		"waxingCrescent": "Wassende sikkel",
+		"waningCrescent": "Afnemende sikkel",
+		"waxingGibbous": "Wassende maan",
+		"waningGibbous": "Afnemende maan"
+	},
+	"errors": {
+		"noGeolocation": "Dit apparaat kan zijn positie niet doorgeven",
+		"permissionDenied": "Toestemming voor locatie is geweigerd",
+		"noPosition": "Er kon geen positie worden bepaald",
+		"locateTimeout": "Het bepalen van de locatie duurde te lang",
+		"locateFailed": "Het bepalen van de locatie is mislukt",
+		"summitsUnreachable": "De toppendatabase is niet bereikbaar",
+		"summitsFailed": "De toppendatabase gaf een fout terug",
+		"terrainDecode": "De hoogtetegels kunnen niet worden gedecodeerd",
+		"webgl": "WebGL2 is nodig om het landschap te tekenen"
+	},
+	"update": {
+		"title": "Update beschikbaar",
+		"message": "Een nieuwe versie staat klaar. Opgeslagen kaarten blijven ongemoeid.",
+		"install": "Bijwerken",
+		"later": "Niet nu"
+	},
+	"info": {
+		"sourceCode": "Broncode op GitHub",
+		"contact": "Neem contact op",
+		"copyLink": "Kopieer een link naar dit onderdeel",
+		"copied": "Link gekopieerd",
+		"tools": "Gebruikte hulpmiddelen"
+	},
+	"sources": {
+		"intro": "Limina bouwt op open gegevens en open gereedschap",
+		"mapterhorn": {
+			"role": "Hoogtegegevens",
+			"detail": "Terreinhoogtes over de hele wereld. Ze geven het reliëf zijn vorm, en zijn waar de app tegenaan meet om uit te rekenen welke toppen zichtbaar zijn vanaf waar je staat en wanneer de zon over een rug komt."
+		},
+		"openstreetmap": {
+			"role": "Namen en posities",
+			"detail": "De naam, de positie en de vastgelegde hoogte van elke top, bergketen, rug en heuvel die de app benoemt."
+		},
+		"carto": {
+			"role": "Kaarttegels",
+			"detail": "Het donkere kaartbeeld dat de platte kaart gebruikt bij het kiezen van een uitkijkpunt, gemaakt uit OpenStreetMap-gegevens."
+		},
+		"nominatim": {
+			"role": "Plaatsen zoeken",
+			"detail": "Een zoekdienst van OpenStreetMap. Die zet een ingetypte plaatsnaam om in coördinaten waar de app naartoe kan gaan."
+		},
+		"maplibre": {
+			"role": "Kaartweergave",
+			"detail": "Tekent de platte kaart, en verzorgt het verschuiven, zoomen en de vloeiende verplaatsingen."
+		},
+		"milkyWay": {
+			"role": "Vorm van de Melkweg",
+			"detail": "Contourgegevens die de omtrek van de Melkweg beschrijven, getekend door José R. Vieira. De app leest ze uit de kopie die met Olaf Frohns d3-celestial is gepubliceerd."
+		}
+	}
+}

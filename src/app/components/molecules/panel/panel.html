@@ -1,0 +1,14 @@
+<header class="panel__header">
+	<a routerLink="/" class="icon-button icon-button--small panel__back">
+		<i class="icon-angle-left" aria-hidden="true"></i>
+		<span class="visually-hidden">{{ 'nav.back' | translate }}</span>
+	</a>
+	<h1 #title tabindex="-1">{{ heading() }}</h1>
+	<div class="panel__actions">
+		<ng-content select="[panelActions]" />
+	</div>
+</header>
+
+<div class="panel__body" [class.is-flush]="flush()" [class.is-centred]="centred()">
+	<ng-content />
+</div>

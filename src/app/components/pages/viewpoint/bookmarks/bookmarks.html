@@ -1,0 +1,36 @@
+<app-panel [heading]="'nav.bookmarks' | translate">
+	@if (!bookmarks().length) {
+		<p>{{ 'bookmarks.none' | translate }}</p>
+	} @else {
+		<app-table
+			[columns]="columns"
+			[rows]="bookmarks()"
+			[searchable]="true"
+			[selectable]="true"
+			emptyMessage="bookmarks.noMatch"
+			(rowSelect)="flyTo($event)"
+		>
+			<ng-template #rowActions let-bookmark>
+				<button type="button" class="icon-action" (click)="flyTo(bookmark)">
+					<i class="icon-paper-plane" aria-hidden="true"></i>
+					<span class="visually-hidden">
+						{{ 'bookmarks.flyTo' | translate: { name: bookmark.name } }}
+					</span>
+				</button>
+			</ng-template>
+
+			<ng-template #actions let-bookmark>
+				<button
+					type="button"
+					class="icon-action bookmarks__delete-button"
+					(click)="remove(bookmark)"
+				>
+					<i class="icon-xmark" aria-hidden="true"></i>
+					<span class="visually-hidden">
+						{{ 'bookmarks.delete' | translate: { name: bookmark.name } }}
+					</span>
+				</button>
+			</ng-template>
+		</app-table>
+	}
+</app-panel>

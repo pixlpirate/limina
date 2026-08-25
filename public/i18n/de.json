@@ -1,0 +1,260 @@
+{
+	"app": {
+		"name": "Limina"
+	},
+	"nav": {
+		"main": "Haupt",
+		"menu": "Menü",
+		"close": "Menü schließen",
+		"back": "Zurück zur Landschaft",
+		"viewpoint": "Standpunkt wählen",
+		"map": "Karte",
+		"coordinates": "Koordinaten",
+		"latLon": "Breite / Länge",
+		"latLonShort": "Lat / Long",
+		"summits": "Sichtbare Gipfel",
+		"bookmarks": "Lesezeichen",
+		"celestial": "Sonne und Mond",
+		"settings": "Einstellungen",
+		"info": "Info"
+	},
+	"compass": {
+		"points": {
+			"n": "N",
+			"e": "O",
+			"s": "S",
+			"w": "W"
+		},
+		"following": "Geräteausrichtung ein",
+		"manual": "Geräteausrichtung aus",
+		"noReading": "Keine Ausrichtungsdaten",
+		"unsupported": "Geräteausrichtung nicht verfügbar"
+	},
+	"landscape": {
+		"description": "Landschaft mit {{count}} sichtbaren Gipfeln",
+		"loading": "Gelände wird geladen…",
+		"raise": "Standpunkt anheben",
+		"lower": "Standpunkt absenken",
+		"locate": "Standpunkt auf meine Position setzen",
+		"openMap": "Standpunkt auf der Karte wählen",
+		"myPosition": "Mein Standort",
+		"showCamera": "Kamera hinter der Landschaft zeigen",
+		"hideCamera": "Kamera ausblenden",
+		"cameraUnavailable": "Die Kamera ist nicht verfügbar"
+	},
+	"conditions": {
+		"title": "Sichtbedingungen",
+		"date": "Datum",
+		"time": "Uhrzeit",
+		"timeOfDay": "Tageszeit",
+		"visibility": "Sichtweite",
+		"visibilityDistance": "Sichtweite",
+		"visibilitySet": "Sichtweite auf {{distance}} gesetzt",
+		"dateSet": "Datum auf {{date}} gesetzt",
+		"timeSet": "Uhrzeit auf {{time}} gesetzt",
+		"bookmarkSpot": "Diesen Ort merken",
+		"nameSpot": "Diesem Ort einen Namen geben",
+		"saveBookmark": "Lesezeichen speichern",
+		"bookmarked": "{{name}} gemerkt",
+		"followingClock": "Folgt der Uhr",
+		"held": "Angehalten",
+		"holdMoment": "Folgt der Uhr. Diesen Moment festhalten.",
+		"followAgain": "Angehalten. Wieder der Uhr folgen."
+	},
+	"table": {
+		"filter": "Filtern",
+		"startFiltering": "Tabelle filtern",
+		"stopFiltering": "Filtern beenden",
+		"empty": "Nichts anzuzeigen."
+	},
+	"modal": {
+		"confirm": "Sicher?",
+		"cancel": "Abbrechen",
+		"delete": "Löschen",
+		"continue": "Weiter"
+	},
+	"dataWarning": {
+		"title": "Hinweis zum Datenverbrauch",
+		"message": "Die 3D-Landschaft lädt mehrere MB Höhendaten herunter. Wir empfehlen WLAN oder einen unbegrenzten Datentarif. In den Einstellungen lässt sich ein Gebiet über WLAN speichern und später offline ansehen.",
+		"remember": "Nicht mehr warnen"
+	},
+	"settings": {
+		"sky": "Himmel",
+		"sun": "Sonne",
+		"moon": "Mond",
+		"milkyWay": "Milchstraße",
+		"peakNames": "Gipfelnamen",
+		"showElevation": "Höhe anzeigen",
+		"nameRanges": "Gebirge, Grate und Hügel benennen",
+		"peakNameSize": "Schriftgröße der Namen",
+		"size": {
+			"small": "Klein",
+			"medium": "Mittel",
+			"large": "Groß"
+		},
+		"units": "Einheiten",
+		"metres": "Meter",
+		"feet": "Fuß",
+		"language": "Sprache",
+		"offline": "Offline",
+		"offlineNote": "Betrachtete Gebiete werden beim Laden gespeichert. Ein gespeichertes Gebiet lädt alle Sichtweiten für die Offline-Nutzung.",
+		"usage": "{{entries}} Einträge gespeichert, {{megabytes}} MB",
+		"storing": "speichert {{percent}} %",
+		"storeArea": "Dieses Gebiet speichern",
+		"clearStored": "Gespeicherte Daten löschen",
+		"clearTitle": "Gespeicherte Daten löschen?",
+		"clearMessage": "Alles, was für die Offline-Nutzung gespeichert ist, wird gelöscht. Das Gelände wird beim nächsten Mal erneut geladen.",
+		"clearAction": "Löschen",
+		"outline": "Konturen",
+		"outlineWidth": "Konturstärke"
+	},
+	"summits": {
+		"name": "Name",
+		"altitude": "Höhe",
+		"distance": "Entfernung",
+		"direction": "Richtung",
+		"working": "Ermittle, was in Sicht ist…",
+		"none": "Von hier aus ist nichts in Sicht.",
+		"retry": "Erneut versuchen",
+		"look": "{{name}} ansehen",
+		"flyTo": "Zu {{name}} gehen"
+	},
+	"bookmarks": {
+		"name": "Name",
+		"position": "Position",
+		"altitude": "Höhe",
+		"marked": "Gemerkt am",
+		"none": "Noch keine Lesezeichen. Um eines anzulegen, geh zurück zur Landschaftsansicht und tippe im Menü unten links auf das Lesezeichen-Symbol.",
+		"noMatch": "Kein Lesezeichen passt dazu.",
+		"delete": "{{name}} löschen",
+		"deleted": "{{name}} gelöscht",
+		"deleteTitle": "Dieses Lesezeichen löschen?",
+		"deleteMessage": "{{name}} wird aus deinen Lesezeichen entfernt.",
+		"unnamed": "Ohne Namen",
+		"flyTo": "Zu {{name}} gehen"
+	},
+	"coordinates": {
+		"latitude": "Breite",
+		"longitude": "Länge",
+		"northOrSouth": "Nord oder Süd",
+		"eastOrWest": "Ost oder West",
+		"degrees": "Grad",
+		"minutes": "Minuten",
+		"seconds": "Sekunden",
+		"flyTo": "Hinfliegen",
+		"outOfRange": "Diese Koordinaten liegen außerhalb des gültigen Bereichs"
+	},
+	"map": {
+		"search": "Nach einem Ort suchen",
+		"searchAction": "Suchen",
+		"noMatch": "Kein Ort passt zu dieser Suche",
+		"flyToSelected": "Zum gewählten Punkt fliegen",
+		"unavailable": "Die Ortssuche ist gerade nicht verfügbar",
+		"offline": "Für diese Karte wird eine Internetverbindung benötigt."
+	},
+	"celestial": {
+		"sun": "Sonne",
+		"moon": "Mond",
+		"sunWithState": "Sonne, {{state}}",
+		"moonWithState": "{{state}}, {{percent}} beleuchtet",
+		"lit": "{{percent}} beleuchtet",
+		"step": "Abschnitt",
+		"time": "Uhrzeit",
+		"heightInSky": "Höhe am Himmel",
+		"direction": "Richtung",
+		"highestToday": "Höchster Stand heute",
+		"distance": "Entfernung",
+		"sunDistance": "149,6 Millionen km",
+		"sunriseHorizon": "Aufgang – Über dem Horizont",
+		"sunriseMountains": "Aufgang – Über den Bergen",
+		"highestPoint": "Höchster Stand",
+		"sunsetMountains": "Untergang – Hinter den Bergen",
+		"sunsetHorizon": "Untergang – Unter dem Horizont",
+		"moonriseHorizon": "Aufgang – Über dem Horizont",
+		"moonriseMountains": "Aufgang – Über den Bergen",
+		"moonsetMountains": "Untergang – Hinter den Bergen",
+		"moonsetHorizon": "Untergang – Unter dem Horizont",
+		"state": {
+			"daylight": "Tageslicht",
+			"civil": "Bürgerliche Dämmerung",
+			"nautical": "Nautische Dämmerung",
+			"astronomical": "Astronomische Dämmerung",
+			"night": "Nacht"
+		},
+		"dawn": {
+			"golden": "Morgen – Goldene Stunde",
+			"blue": "Morgen – Blaue Stunde",
+			"civil": "Morgen – Bürgerlich",
+			"nautical": "Morgen – Nautisch",
+			"astronomical": "Morgen – Astronomisch"
+		},
+		"dusk": {
+			"golden": "Abend – Goldene Stunde",
+			"blue": "Abend – Blaue Stunde",
+			"civil": "Abend – Bürgerlich",
+			"nautical": "Abend – Nautisch",
+			"astronomical": "Abend – Astronomisch"
+		}
+	},
+	"moonPhase": {
+		"new": "Neumond",
+		"full": "Vollmond",
+		"firstQuarter": "Erstes Viertel",
+		"lastQuarter": "Letztes Viertel",
+		"waxingCrescent": "Zunehmende Sichel",
+		"waningCrescent": "Abnehmende Sichel",
+		"waxingGibbous": "Zunehmender Dreiviertelmond",
+		"waningGibbous": "Abnehmender Dreiviertelmond"
+	},
+	"errors": {
+		"noGeolocation": "Dieses Gerät kann seine Position nicht melden",
+		"permissionDenied": "Die Standortfreigabe wurde verweigert",
+		"noPosition": "Es konnte keine Position bestimmt werden",
+		"locateTimeout": "Die Standortbestimmung hat zu lange gedauert",
+		"locateFailed": "Die Standortbestimmung ist fehlgeschlagen",
+		"summitsUnreachable": "Die Gipfeldatenbank ist nicht erreichbar",
+		"summitsFailed": "Die Gipfeldatenbank hat einen Fehler gemeldet",
+		"terrainDecode": "Die Höhenkacheln lassen sich nicht dekodieren",
+		"webgl": "Für die Landschaft wird WebGL2 benötigt"
+	},
+	"update": {
+		"title": "Update verfügbar",
+		"message": "Eine neue Version ist bereit. Gespeicherte Karten bleiben erhalten.",
+		"install": "Aktualisieren",
+		"later": "Später"
+	},
+	"info": {
+		"sourceCode": "Quellcode auf GitHub",
+		"contact": "Kontakt aufnehmen",
+		"copyLink": "Link zu diesem Abschnitt kopieren",
+		"copied": "Link kopiert",
+		"tools": "Verwendete Werkzeuge"
+	},
+	"sources": {
+		"intro": "Limina baut auf offenen Daten und offenen Werkzeugen auf",
+		"mapterhorn": {
+			"role": "Höhendaten",
+			"detail": "Geländehöhen weltweit. Sie geben dem Relief seine Form und sind die Grundlage, auf der die App bestimmt, welche Gipfel von deinem Standort aus sichtbar sind und wann die Sonne über einen Grat steigt."
+		},
+		"openstreetmap": {
+			"role": "Namen und Positionen",
+			"detail": "Name, Position und eingetragene Höhe jedes Gipfels, Gebirges, Grats und Hügels, den die App beschriftet."
+		},
+		"carto": {
+			"role": "Kartenkacheln",
+			"detail": "Das dunkle Kartenbild der flachen Karte bei der Wahl eines Standpunkts, erstellt aus OpenStreetMap-Daten."
+		},
+		"nominatim": {
+			"role": "Ortssuche",
+			"detail": "Ein Suchdienst von OpenStreetMap. Er wandelt einen eingegebenen Ortsnamen in Koordinaten um, zu denen die App springen kann."
+		},
+		"maplibre": {
+			"role": "Kartendarstellung",
+			"detail": "Zeichnet die flache Karte und übernimmt Verschieben, Zoomen und animierte Bewegungen."
+		},
+		"milkyWay": {
+			"role": "Form der Milchstraße",
+			"detail": "Konturdaten, die den Umriss der Milchstraße beschreiben, aufgenommen von José R. Vieira. Die App liest sie aus der Fassung, die mit Olaf Frohns d3-celestial veröffentlicht wurde."
+		}
+	}
+}

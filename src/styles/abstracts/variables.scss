@@ -1,0 +1,97 @@
+@use "sass:map";
+@use "responsive" as *;
+@use "mixins" as *;
+
+:root {
+	--color-base: #0d0d0d;
+	--color-contrast: #f5f5f5;
+
+	--color-accent-1: #6348af;
+	--color-accent-1-light: oklch(from var(--color-accent-1) calc(l + 0.1) c h);
+
+	--color-grey-50: oklch(from var(--color-base) calc(l + 0.95) c h);
+	--color-grey-100: oklch(from var(--color-base) calc(l + 0.9) c h);
+	--color-grey-200: oklch(from var(--color-base) calc(l + 0.8) c h);
+	--color-grey-300: oklch(from var(--color-base) calc(l + 0.7) c h);
+	--color-grey-400: oklch(from var(--color-base) calc(l + 0.6) c h);
+	--color-grey-500: oklch(from var(--color-base) calc(l + 0.5) c h);
+	--color-grey-600: oklch(from var(--color-base) calc(l + 0.4) c h);
+	--color-grey-700: oklch(from var(--color-base) calc(l + 0.3) c h);
+	--color-grey-800: oklch(from var(--color-base) calc(l + 0.2) c h);
+	--color-grey-900: oklch(from var(--color-base) calc(l + 0.1) c h);
+	--color-grey-950: oklch(from var(--color-base) calc(l + 0.05) c h);
+
+	--color-danger: #e04f4d;
+	--color-danger-light: #e3615f;
+	--color-warning: #e07f00;
+	--color-warning-light: #f58b00;
+	--color-success: #6fa03f;
+	--color-success-light: #7aaf46;
+	--color-info: #4e9ed0;
+	--color-info-light: #5ea7d4;
+
+	--font-family-text:
+		Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
+		source-sans-pro, sans-serif;
+	--font-family-title: var(--font-family-text);
+
+	--font-weight-thin: 100;
+	--font-weight-extralight: 200;
+	--font-weight-light: 300;
+	--font-weight-normal: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+	--font-weight-extrabold: 800;
+	--font-weight-black: 900;
+
+	--font-size-xsmall: 1.4rem;
+	--font-size-small: 1.6rem;
+	--font-size-medium: 1.8rem;
+	--font-size-large: 2rem;
+	--font-size-xlarge: 2.2rem;
+
+	--h1-s: 7.5rem;
+	--h2-s: 5rem;
+	--h3-s: 4rem;
+	--h4-s: 3.5rem;
+	--h5-s: 3rem;
+	--h6-s: 2.5rem;
+
+	--font-size-h1: var(--h1-s);
+	--font-size-h2: var(--h2-s);
+	--font-size-h3: var(--h3-s);
+	--font-size-h4: var(--h4-s);
+	--font-size-h5: var(--h5-s);
+	--font-size-h6: var(--h6-s);
+
+	--line-height-regular: 1.5;
+	--line-height-small: 1.25;
+
+	--gap-xsmall: 4px;
+	--gap-small: 8px;
+	--gap-medium: 16px;
+	--gap-large: 48px;
+	--gap-xlarge: 192px;
+
+	--control-size-xsmall: 20px;
+	--control-size-small: calc(
+		var(--control-size) - var(--border-size-large) * 2
+	);
+	--control-size: 50px;
+	--radio-size: 1.75rem;
+
+	--border-size: 2px;
+	--border-size-large: 5px;
+	--border-radius-small: 4px;
+	--border-radius-medium: 8px;
+	--border-radius-large: 12px;
+	--border-radius-xlarge: 24px;
+
+	--shadow-large: 0 0 40px rgba(0, 0, 0, 0.6);
+
+	--transition-duration: 0.15s;
+	--transition-timing-function: ease-in-out;
+	--transition: all var(--transition-duration)
+		var(--transition-timing-function);
+}

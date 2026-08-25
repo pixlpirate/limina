@@ -1,0 +1,6 @@
+<button class="icon-button" type="button" [attr.aria-pressed]="showing()" (click)="toggle()">
+	<i class="icon-camera" aria-hidden="true"></i>
+	<span class="visually-hidden">
+		{{ (showing() ? 'landscape.hideCamera' : 'landscape.showCamera') | translate }}
+	</span>
+</button>

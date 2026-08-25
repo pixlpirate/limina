@@ -1,0 +1,260 @@
+{
+	"app": {
+		"name": "Limina"
+	},
+	"nav": {
+		"main": "Principale",
+		"menu": "Menu",
+		"close": "Chiudi il menu",
+		"back": "Torna al paesaggio",
+		"viewpoint": "Scelta del punto di vista",
+		"map": "Mappa",
+		"coordinates": "Coordinate",
+		"latLon": "Latitudine / longitudine",
+		"latLonShort": "Lat / Long",
+		"summits": "Cime visibili",
+		"bookmarks": "Segnalibri",
+		"celestial": "Sole e luna",
+		"settings": "Impostazioni",
+		"info": "Informazioni"
+	},
+	"compass": {
+		"points": {
+			"n": "N",
+			"e": "E",
+			"s": "S",
+			"w": "O"
+		},
+		"following": "Orientamento del dispositivo attivo",
+		"manual": "Orientamento del dispositivo disattivato",
+		"noReading": "Nessun dato di orientamento",
+		"unsupported": "Orientamento del dispositivo non disponibile"
+	},
+	"landscape": {
+		"description": "Paesaggio con {{count}} cime visibili",
+		"loading": "Caricamento del terreno…",
+		"raise": "Alza il punto di vista",
+		"lower": "Abbassa il punto di vista",
+		"locate": "Sposta il punto di vista sulla mia posizione",
+		"openMap": "Scegliere un punto di vista sulla mappa",
+		"myPosition": "La mia posizione",
+		"showCamera": "Mostra la fotocamera dietro il paesaggio",
+		"hideCamera": "Nascondi la fotocamera",
+		"cameraUnavailable": "La fotocamera non è disponibile"
+	},
+	"conditions": {
+		"title": "Condizioni di osservazione",
+		"date": "Data",
+		"time": "Ora",
+		"timeOfDay": "Ora del giorno",
+		"visibility": "Visibilità",
+		"visibilityDistance": "Distanza di visibilità",
+		"visibilitySet": "Visibilità impostata su {{distance}}",
+		"dateSet": "Data impostata al {{date}}",
+		"timeSet": "Ora impostata alle {{time}}",
+		"bookmarkSpot": "Salva questo luogo",
+		"nameSpot": "Dai un nome a questo luogo",
+		"saveBookmark": "Salva il segnalibro",
+		"bookmarked": "{{name}} salvato",
+		"followingClock": "Segue l'orologio",
+		"held": "Fermato",
+		"holdMoment": "Segue l'orologio. Ferma questo momento.",
+		"followAgain": "Fermato. Torna a seguire l'orologio."
+	},
+	"table": {
+		"filter": "Filtra",
+		"startFiltering": "Filtra la tabella",
+		"stopFiltering": "Smetti di filtrare",
+		"empty": "Niente da mostrare."
+	},
+	"modal": {
+		"confirm": "Sei sicuro?",
+		"cancel": "Annulla",
+		"delete": "Elimina",
+		"continue": "Continua"
+	},
+	"dataWarning": {
+		"title": "Avviso sull'uso dei dati",
+		"message": "Il paesaggio 3D scarica diversi MB di dati di elevazione. Consigliamo il Wi-Fi o un piano dati illimitato. Puoi salvare un'area dalle impostazioni con il Wi-Fi per vederla offline.",
+		"remember": "Non avvisarmi più"
+	},
+	"settings": {
+		"sky": "Cielo",
+		"sun": "Sole",
+		"moon": "Luna",
+		"milkyWay": "Via Lattea",
+		"peakNames": "Nomi delle cime",
+		"showElevation": "Mostra l'altitudine",
+		"nameRanges": "Nomina catene, creste e colline",
+		"peakNameSize": "Dimensione dei nomi",
+		"size": {
+			"small": "Piccola",
+			"medium": "Media",
+			"large": "Grande"
+		},
+		"units": "Unità",
+		"metres": "Metri",
+		"feet": "Piedi",
+		"language": "Lingua",
+		"offline": "Senza connessione",
+		"offlineNote": "Le aree visitate vengono salvate al caricamento. Salvare un'area scarica tutte le distanze di visibilità per l'uso offline.",
+		"usage": "{{entries}} elementi salvati, {{megabytes}} MB",
+		"storing": "salvataggio {{percent}} %",
+		"storeArea": "Salva quest'area",
+		"clearStored": "Cancella i dati salvati",
+		"clearTitle": "Cancellare i dati salvati?",
+		"clearMessage": "Tutto ciò che è salvato per l'uso senza connessione verrà eliminato. Il terreno sarà scaricato di nuovo la prossima volta che servirà.",
+		"clearAction": "Cancella",
+		"outline": "Contorni",
+		"outlineWidth": "Spessore dei contorni"
+	},
+	"summits": {
+		"name": "Nome",
+		"altitude": "Altitudine",
+		"distance": "Distanza",
+		"direction": "Direzione",
+		"working": "Sto calcolando cosa è in vista…",
+		"none": "Da qui non è in vista nulla.",
+		"retry": "Riprova",
+		"look": "Guarda {{name}}",
+		"flyTo": "Vai a {{name}}"
+	},
+	"bookmarks": {
+		"name": "Nome",
+		"position": "Posizione",
+		"altitude": "Altitudine",
+		"marked": "Salvato il",
+		"none": "Ancora nessun segnalibro. Per crearne uno, torna alla vista del paesaggio e tocca l'icona del segnalibro nel menu in basso a sinistra.",
+		"noMatch": "Nessun segnalibro corrisponde.",
+		"delete": "Elimina {{name}}",
+		"deleted": "{{name}} eliminato",
+		"deleteTitle": "Eliminare questo segnalibro?",
+		"deleteMessage": "{{name}} sarà rimosso dai tuoi segnalibri.",
+		"unnamed": "Senza nome",
+		"flyTo": "Vai a {{name}}"
+	},
+	"coordinates": {
+		"latitude": "Latitudine",
+		"longitude": "Longitudine",
+		"northOrSouth": "Nord o sud",
+		"eastOrWest": "Est o ovest",
+		"degrees": "Gradi",
+		"minutes": "Minuti",
+		"seconds": "Secondi",
+		"flyTo": "Vai lì",
+		"outOfRange": "Queste coordinate sono fuori intervallo"
+	},
+	"map": {
+		"search": "Cerca un luogo",
+		"searchAction": "Cerca",
+		"noMatch": "Nessun luogo corrisponde a questa ricerca",
+		"flyToSelected": "Vai al punto selezionato",
+		"unavailable": "La ricerca dei luoghi non è disponibile al momento",
+		"offline": "Serve una connessione a internet per vedere questa mappa."
+	},
+	"celestial": {
+		"sun": "Sole",
+		"moon": "Luna",
+		"sunWithState": "Sole, {{state}}",
+		"moonWithState": "{{state}}, {{percent}} illuminata",
+		"lit": "{{percent}} illuminata",
+		"step": "Fase",
+		"time": "Ora",
+		"heightInSky": "Altezza nel cielo",
+		"direction": "Direzione",
+		"highestToday": "Punto più alto di oggi",
+		"distance": "Distanza",
+		"sunDistance": "149,6 milioni di km",
+		"sunriseHorizon": "Alba – Sopra l'orizzonte",
+		"sunriseMountains": "Alba – Sopra le montagne",
+		"highestPoint": "Punto più alto",
+		"sunsetMountains": "Tramonto – Dietro le montagne",
+		"sunsetHorizon": "Tramonto – Sotto l'orizzonte",
+		"moonriseHorizon": "Sorgere – Sopra l'orizzonte",
+		"moonriseMountains": "Sorgere – Sopra le montagne",
+		"moonsetMountains": "Tramonto – Dietro le montagne",
+		"moonsetHorizon": "Tramonto – Sotto l'orizzonte",
+		"state": {
+			"daylight": "Pieno giorno",
+			"civil": "Crepuscolo civile",
+			"nautical": "Crepuscolo nautico",
+			"astronomical": "Crepuscolo astronomico",
+			"night": "Notte"
+		},
+		"dawn": {
+			"golden": "Alba – Ora dorata",
+			"blue": "Alba – Ora blu",
+			"civil": "Alba – Civile",
+			"nautical": "Alba – Nautica",
+			"astronomical": "Alba – Astronomica"
+		},
+		"dusk": {
+			"golden": "Crepuscolo – Ora dorata",
+			"blue": "Crepuscolo – Ora blu",
+			"civil": "Crepuscolo – Civile",
+			"nautical": "Crepuscolo – Nautico",
+			"astronomical": "Crepuscolo – Astronomico"
+		}
+	},
+	"moonPhase": {
+		"new": "Luna nuova",
+		"full": "Luna piena",
+		"firstQuarter": "Primo quarto",
+		"lastQuarter": "Ultimo quarto",
+		"waxingCrescent": "Falce crescente",
+		"waningCrescent": "Falce calante",
+		"waxingGibbous": "Gibbosa crescente",
+		"waningGibbous": "Gibbosa calante"
+	},
+	"errors": {
+		"noGeolocation": "Questo dispositivo non può indicare la sua posizione",
+		"permissionDenied": "Il permesso di localizzazione è stato negato",
+		"noPosition": "Non è stato possibile determinare alcuna posizione",
+		"locateTimeout": "La localizzazione è scaduta",
+		"locateFailed": "La localizzazione non è riuscita",
+		"summitsUnreachable": "Il database delle cime non è raggiungibile",
+		"summitsFailed": "Il database delle cime ha restituito un errore",
+		"terrainDecode": "Impossibile decodificare le tessere di altitudine",
+		"webgl": "Serve WebGL2 per disegnare il paesaggio"
+	},
+	"update": {
+		"title": "Aggiornamento disponibile",
+		"message": "È pronta una nuova versione. Le mappe salvate non vengono modificate.",
+		"install": "Aggiorna",
+		"later": "Non ora"
+	},
+	"info": {
+		"sourceCode": "Codice sorgente su GitHub",
+		"contact": "Scrivici",
+		"copyLink": "Copia un link a questa sezione",
+		"copied": "Link copiato",
+		"tools": "Strumenti usati"
+	},
+	"sources": {
+		"intro": "Limina si fonda su dati e strumenti aperti",
+		"mapterhorn": {
+			"role": "Dati di altitudine",
+			"detail": "Le quote del terreno in tutto il mondo. Danno forma al rilievo, e sono il riferimento su cui l'app stabilisce quali cime si vedono da dove ti trovi e quando il sole supera una cresta."
+		},
+		"openstreetmap": {
+			"role": "Nomi e posizioni",
+			"detail": "Il nome, la posizione e la quota registrata di ogni cima, catena, cresta e collina che l'app etichetta."
+		},
+		"carto": {
+			"role": "Tessere della mappa",
+			"detail": "L'immagine scura usata dalla mappa piatta quando si sceglie un punto di vista, ricavata dai dati di OpenStreetMap."
+		},
+		"nominatim": {
+			"role": "Ricerca dei luoghi",
+			"detail": "Un servizio di ricerca gestito da OpenStreetMap. Converte un nome di luogo digitato in coordinate verso cui l'app può spostarsi."
+		},
+		"maplibre": {
+			"role": "Disegno della mappa",
+			"detail": "Disegna la mappa piatta, e gestisce lo spostamento, lo zoom e i movimenti animati."
+		},
+		"milkyWay": {
+			"role": "Forma della Via Lattea",
+			"detail": "Dati di contorno che descrivono il profilo della Via Lattea, tracciato da José R. Vieira. L'app li legge dalla copia pubblicata con d3-celestial di Olaf Frohn."
+		}
+	}
+}

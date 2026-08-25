@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?71233010');
+  src: url('../font/fontello.eot?71233010#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff2?71233010') format('woff2'),
+       url('../font/fontello.woff?71233010') format('woff'),
+       url('../font/fontello.ttf?71233010') format('truetype'),
+       url('../font/fontello.svg?71233010#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?71233010#fontello') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-angle-down:before { content: '\e827'; } /* '' */
+.icon-angle-left:before { content: '\e828'; } /* '' */
+.icon-angle-right:before { content: '\e829'; } /* '' */
+.icon-angle-up:before { content: '\e82a'; } /* '' */
+.icon-bars:before { content: '\e891'; } /* '' */
+.icon-bookmark:before { content: '\e8cc'; } /* '' */
+.icon-calendar-days:before { content: '\e915'; } /* '' */
+.icon-camera:before { content: '\e91a'; } /* '' */
+.icon-check:before { content: '\e955'; } /* '' */
+.icon-circle-check:before { content: '\e972'; } /* '' */
+.icon-circle-exclamation:before { content: '\e97a'; } /* '' */
+.icon-circle-info:before { content: '\e97d'; } /* '' */
+.icon-circle-question:before { content: '\e985'; } /* '' */
+.icon-circle-xmark:before { content: '\e98b'; } /* '' */
+.icon-clock:before { content: '\e995'; } /* '' */
+.icon-compass:before { content: '\e9c2'; } /* '' */
+.icon-envelope:before { content: '\ea53'; } /* '' */
+.icon-eye:before { content: '\ea65'; } /* '' */
+.icon-gear:before { content: '\eb00'; } /* '' */
+.icon-github:before { content: '\eb0e'; } /* '' */
+.icon-infinity:before { content: '\ebc5'; } /* '' */
+.icon-info:before { content: '\ebc6'; } /* '' */
+.icon-link:before { content: '\ec15'; } /* '' */
+.icon-location-crosshairs:before { content: '\ec23'; } /* '' */
+.icon-location-pin:before { content: '\ec25'; } /* '' */
+.icon-lock:before { content: '\ec27'; } /* '' */
+.icon-lock-open:before { content: '\ec28'; } /* '' */
+.icon-magnifying-glass:before { content: '\ec32'; } /* '' */
+.icon-map:before { content: '\ec3c'; } /* '' */
+.icon-map-location:before { content: '\ec3d'; } /* '' */
+.icon-moon:before { content: '\ec88'; } /* '' */
+.icon-mound:before { content: '\ec8e'; } /* '' */
+.icon-mountain:before { content: '\ec8f'; } /* '' */
+.icon-panorama:before { content: '\ecce'; } /* '' */
+.icon-paper-plane:before { content: '\eccf'; } /* '' */
+.icon-sliders:before { content: '\edfd'; } /* '' */
+.icon-sun:before { content: '\ee85'; } /* '' */
+.icon-unlock:before { content: '\ef1f'; } /* '' */
+.icon-volcano:before { content: '\ef70'; } /* '' */
+.icon-xmark:before { content: '\efb2'; } /* '' */
+.icon-chevron-sort:before { content: '\efc8'; } /* '' */
+.icon-chevron-sort-up:before { content: '\efc9'; } /* '' */
+.icon-chevron-sort-down:before { content: '\efca'; } /* '' */

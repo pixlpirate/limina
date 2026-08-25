@@ -1,0 +1,72 @@
+@use "mixins" as *;
+@use "responsive" as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: var(--font-weight-semibold);
+	line-height: var(--line-height-small);
+	font-family: var(--font-family-title);
+}
+
+h1 {
+	font-size: var(--font-size-h1);
+}
+
+h2 {
+	font-size: var(--font-size-h2);
+}
+
+h3 {
+	font-size: var(--font-size-h3);
+}
+
+h4 {
+	font-size: var(--font-size-h4);
+}
+
+h5 {
+	font-size: var(--font-size-h5);
+}
+
+h6 {
+	font-size: var(--font-size-h6);
+}
+
+a {
+	color: var(--link-color);
+	@include text-underline;
+	text-decoration-color: var(--color-grey-800);
+
+	&:hover {
+		text-decoration-color: var(--color-accent-1);
+	}
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-xsmall);
+	cursor: pointer;
+	color: var(--color-grey-600);
+
+	&:has(input[type="checkbox"]),
+	&:has(input[type="radio"]) {
+		flex-direction: row;
+		align-items: center;
+	}
+}
+
+strong {
+	font-weight: var(--font-weight-semibold);
+}
+
+hr {
+	margin: var(--gap-medium) 0;
+	border: none;
+	border-top: 1px solid var(--color-grey-950);
+	width: 100%;
+}

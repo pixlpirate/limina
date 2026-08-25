@@ -1,0 +1,65 @@
+@use "responsive" as *;
+
+.coordinates {
+	display: grid;
+	justify-items: center;
+	gap: var(--gap-medium);
+
+	--number-field-height: clamp(
+		calc(var(--control-size-small) * 1.15),
+		7.5vw,
+		calc(var(--control-size-small) * 2)
+	);
+	--number-field-font: clamp(
+		calc(var(--font-size-small) * 1.15),
+		3.9vw,
+		calc(var(--font-size-small) * 1.8)
+	);
+
+	select {
+		width: 4ch;
+		height: var(--number-field-height);
+		font-size: var(--number-field-font);
+		text-align: center;
+	}
+
+	&__axis {
+		display: grid;
+		justify-items: start;
+		gap: var(--gap-xsmall);
+	}
+
+	&__name {
+		color: var(--color-grey-400);
+		font-size: var(--font-size-small);
+	}
+
+	&__parts {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		gap: var(--gap-xsmall);
+	}
+
+	&__part {
+		display: inline-flex;
+		flex: 0 0 auto;
+		align-items: center;
+		gap: 2px;
+		white-space: nowrap;
+	}
+
+	&__mark {
+		flex: 0 0 auto;
+		color: var(--color-grey-400);
+		font-size: var(--number-field-font);
+		line-height: 1;
+	}
+
+	&__fly {
+		justify-self: center;
+		width: calc(var(--control-size) * 1.5);
+		height: calc(var(--control-size) * 1.5);
+		font-size: var(--font-size-xlarge);
+	}
+}

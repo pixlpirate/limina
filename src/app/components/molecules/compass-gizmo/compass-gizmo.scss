@@ -1,0 +1,59 @@
+:host {
+	position: absolute;
+	top: var(--gap-medium);
+	right: var(--gap-medium);
+	z-index: 2;
+}
+
+.compass-gizmo {
+	&__button {
+		position: relative;
+
+		&,
+		&[aria-pressed="true"],
+		&:hover,
+		&:focus-visible {
+			background-color: var(--color-grey-900);
+		}
+	}
+
+	&__rose {
+		display: block;
+		width: 4rem;
+		height: 4rem;
+	}
+
+	&__mode {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		color: var(--color-grey-400);
+		font-size: 0.8em;
+		line-height: 1;
+
+		&.icon-lock {
+			color: var(--color-warning);
+		}
+
+		&::before {
+			margin: 0;
+			width: auto;
+		}
+	}
+
+	&__needle {
+		transform-origin: 50% 50%;
+	}
+
+	&__lubber {
+		fill: var(--color-grey-600);
+	}
+
+	&__north {
+		fill: var(--color-danger);
+	}
+
+	&__south {
+		fill: var(--color-contrast);
+	}
+}

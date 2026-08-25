@@ -1,0 +1,21 @@
+<button
+	type="button"
+	class="icon-button compass-gizmo__button"
+	[attr.aria-pressed]="following()"
+	(click)="toggle()"
+>
+	<svg class="compass-gizmo__rose" viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
+		<path class="compass-gizmo__lubber" d="M16 0 19 5 13 5Z" />
+		<g class="compass-gizmo__needle" [style.rotate.deg]="rotation()">
+			<path class="compass-gizmo__north" d="M16 5 21 17 11 17Z" />
+			<path class="compass-gizmo__south" d="M16 29 11 17 21 17Z" />
+		</g>
+	</svg>
+	<i
+		class="compass-gizmo__mode"
+		[class.icon-lock]="following()"
+		[class.icon-lock-open]="!following()"
+		aria-hidden="true"
+	></i>
+	<span class="visually-hidden">{{ label() }}</span>
+</button>

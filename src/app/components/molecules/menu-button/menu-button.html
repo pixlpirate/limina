@@ -1,0 +1,11 @@
+<button
+	#button
+	type="button"
+	class="icon-button icon-button--small"
+	aria-controls="menu-pane"
+	[attr.aria-expanded]="open()"
+	(click)="toggle()"
+>
+	<i class="icon-bars" aria-hidden="true"></i>
+	<span class="visually-hidden">{{ 'nav.menu' | translate }}</span>
+</button>

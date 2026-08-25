@@ -1,0 +1,37 @@
+@use "mixins" as *;
+@use "responsive" as *;
+
+* {
+	box-sizing: border-box;
+}
+
+.visually-hidden {
+	@include visually-hidden;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 55%;
+}
+
+body {
+	margin: 0;
+	background-color: var(--color-base);
+	color: var(--color-contrast);
+	accent-color: var(--color-accent-1);
+	font-size: var(--font-size-medium);
+	line-height: var(--line-height-regular);
+	font-family: var(--font-family-text);
+}
+
+@include media-query(lg) {
+	html {
+		font-size: 60%;
+	}
+}
+
+@include media-query(xxl) {
+	html {
+		font-size: 62.5%;
+	}
+}
