@@ -56,8 +56,8 @@ const BASEMAP_STYLE: StyleSpecification = {
 			source: 'relief',
 			paint: {
 				'hillshade-method': 'basic',
-				'hillshade-exaggeration': 0.5,
-				'hillshade-highlight-color': 'rgba(255, 255, 255, 0.175)',
+				'hillshade-exaggeration': 0.25,
+				'hillshade-highlight-color': 'rgba(255, 255, 255, 0.125)',
 				'hillshade-shadow-color': 'rgba(0, 0, 0, 0.0)',
 				'hillshade-accent-color': 'rgba(0, 0, 0, 0.0)',
 			},
