@@ -58,7 +58,7 @@
 		</section>
 
 		<section class="info__prose">
-			<markdown [src]="changelog()" (ready)="anchorHeadings()" />
+			<markdown [src]="changelog()" (ready)="anchorHeadings(); setLinksTargetBlank()" />
 		</section>
 	</div>
 </app-panel>

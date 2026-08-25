@@ -80,16 +80,17 @@ export class Info {
 
 	constructor() {
 		// The tools heading has no markdown to wait on.
-		afterNextRender(() => this.anchorHeadings());
+		afterNextRender(() => {
+			this.anchorHeadings();
+			this.setLinksTargetBlank();
+		});
 	}
 
 	protected readonly description = computed(() => this.file('description'));
 	protected readonly changelog = computed(() => this.file('changelog'));
 
 	/**
-	 * Gives every heading an id and a link to itself, once the markdown is on the
-	 * page. Markdown cannot carry the button, and putting one in by hand would
-	 * mean writing HTML in the very files this is meant to keep clean.
+	 * Gives every heading an id and a link to itself
 	 */
 	protected anchorHeadings(): void {
 		const label = this.translate.instant('info.copyLink') as string;
@@ -131,6 +132,16 @@ export class Info {
 				}
 				void this.link(heading.id, event);
 			});
+		}
+	}
+
+	protected setLinksTargetBlank(): void {
+		const links = this.host.nativeElement.querySelectorAll<HTMLAnchorElement>(
+			'.info__prose a[href]:not([target])',
+		);
+		console.log('Setting target="_blank" for', links.length, 'links');
+		for (const link of links) {
+			link.target = '_blank';
 		}
 	}
 
