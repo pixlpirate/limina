@@ -8,7 +8,7 @@ Den samlar inte in några personuppgifter och sparar ingen historik.
 
 Appen är öppen källkod. Rättelser och förbättringar tas gärna emot i förrådet.
 
-[github.com/pixlpirate/limina](https://github.com/pixlpirate/limina)
+[pixlpirate/limina](https://github.com/pixlpirate/limina)
 
 #### Ge dricks
 

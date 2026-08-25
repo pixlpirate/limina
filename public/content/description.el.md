@@ -8,7 +8,7 @@
 
 Η εφαρμογή είναι ανοιχτού κώδικα. Διορθώσεις και βελτιώσεις είναι ευπρόσδεκτες στο αποθετήριο.
 
-[github.com/pixlpirate/limina](https://github.com/pixlpirate/limina)
+[pixlpirate/limina](https://github.com/pixlpirate/limina)
 
 #### Φιλοδώρημα
 

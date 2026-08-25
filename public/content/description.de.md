@@ -8,7 +8,7 @@ Sie erhebt keine personenbezogenen Daten und speichert keinen Verlauf.
 
 Die App ist quelloffen. Korrekturen und Verbesserungen sind im Repository willkommen.
 
-[github.com/pixlpirate/limina](https://github.com/pixlpirate/limina)
+[pixlpirate/limina](https://github.com/pixlpirate/limina)
 
 #### Trinkgeld geben
 

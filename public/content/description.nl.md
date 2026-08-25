@@ -8,7 +8,7 @@ De app verzamelt geen persoonsgegevens en bewaart geen geschiedenis.
 
 De app is opensource. Correcties en verbeteringen zijn welkom in de repository.
 
-[github.com/pixlpirate/limina](https://github.com/pixlpirate/limina)
+[pixlpirate/limina](https://github.com/pixlpirate/limina)
 
 #### Een fooi geven
 

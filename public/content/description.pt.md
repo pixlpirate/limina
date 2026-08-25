@@ -8,7 +8,7 @@ Não recolhe dados pessoais nem guarda qualquer histórico.
 
 A aplicação é de código aberto. Correções e melhorias são bem-vindas no repositório.
 
-[github.com/pixlpirate/limina](https://github.com/pixlpirate/limina)
+[pixlpirate/limina](https://github.com/pixlpirate/limina)
 
 #### Deixar uma gorjeta
 

@@ -8,7 +8,7 @@ Elle ne collecte aucune donnée personnelle et ne conserve aucun historique.
 
 L'application est open source. Les corrections et améliorations sont les bienvenues sur le dépôt.
 
-[github.com/pixlpirate/limina](https://github.com/pixlpirate/limina)
+[pixlpirate/limina](https://github.com/pixlpirate/limina)
 
 #### Donner un pourboire
 

@@ -8,7 +8,7 @@ It collects **no personal data** and keeps _no history_. Everything is stored on
 
 The app is open source. Corrections and improvements are welcome on the repository.
 
-[github.com/pixlpirate/limina](https://github.com/pixlpirate/limina)
+[pixlpirate/limina](https://github.com/pixlpirate/limina)
 
 #### Leave a tip
 
