@@ -13,6 +13,7 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js",
+          "/*.mjs",
           "/fonts/**",
           "/icons/**"
         ]
