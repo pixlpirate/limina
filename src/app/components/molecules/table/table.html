@@ -4,6 +4,7 @@
 			<div class="table__search-field">
 				@if (searching()) {
 					<input
+						#field
 						type="text"
 						[placeholder]="'table.filter' | translate"
 						autocomplete="off"

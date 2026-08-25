@@ -1,16 +1,19 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { TranslatePipe } from '@ngx-translate/core';
 import {
 	ChangeDetectionStrategy,
 	Component,
+	ElementRef,
 	TemplateRef,
 	computed,
 	contentChild,
+	effect,
 	input,
 	linkedSignal,
 	output,
 	signal,
+	viewChild,
 } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 /** A column, and how to read it from a row */
 export interface TableColumn<T> {
@@ -71,6 +74,18 @@ export class Table<T> {
 
 	protected readonly query = signal('');
 	protected readonly searching = signal(false);
+
+	private readonly field = viewChild<ElementRef<HTMLInputElement>>('field');
+
+	constructor() {
+		// The box is only in the DOM once the search is open, so this waits for it
+		// to arrive rather than reaching for it as the button is pressed.
+		effect(() => {
+			if (this.searching()) {
+				this.field()?.nativeElement.focus();
+			}
+		});
+	}
 
 	/** Column being ordered by */
 	protected readonly sortKey = linkedSignal<TableColumn<T>[], string | null>({
@@ -136,6 +151,7 @@ export class Table<T> {
 
 	protected toggleSearch(): void {
 		this.searching.update((open) => !open);
+
 		if (!this.searching()) {
 			this.query.set('');
 		}
