@@ -15,7 +15,6 @@
 		opacity: 0.5;
 	}
 
-	/* Sized by its container, with the figures against the left edge like a select. */
 	&.is-fill {
 		display: flex;
 		margin-inline: 0;
@@ -30,8 +29,6 @@
 
 	&__input {
 		flex: 1 1 auto;
-		/* Firefox draws the native steppers from the system theme and both
-		   engines lay them over the figures, so they go — by every spelling. */
 		appearance: textfield;
 		-moz-appearance: textfield;
 		box-sizing: border-box;
@@ -71,7 +68,9 @@
 		border: none;
 		background-color: transparent;
 		padding: 0;
-		width: calc(var(--number-field-height, var(--control-size-small)) * 0.7);
+		width: calc(
+			var(--number-field-height, var(--control-size-small)) * 0.7
+		);
 		min-height: 0;
 		touch-action: none;
 		color: var(--color-grey-400);

@@ -81,8 +81,8 @@ export class NumberField implements ControlValueAccessor {
 	/** Fractional steps carried between frames */
 	private carried = 0;
 
-	private onChange: (value: number | null) => void = () => {};
-	private onTouched: () => void = () => {};
+	private onChange: (value: number | null) => void = () => { };
+	private onTouched: () => void = () => { };
 
 	constructor() {
 		inject(DestroyRef).onDestroy(() => this.release());
