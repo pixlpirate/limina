@@ -287,6 +287,14 @@ export class TerrainRenderer {
 		this.trailFade = trailFade;
 	}
 
+	/**
+	 * How far the sky has arrived, shaped. Worked out once and handed to every
+	 * pass, so the discs, the tracks and the Milky Way cannot drift apart.
+	 */
+	private get skyFade(): number {
+		return Math.pow(Math.min(Math.max(this.overlayFade, 0), 1), this.style.skyFadePower);
+	}
+
 	/** Shows or hides the fill, keeping the lines */
 	setPassthrough(on: boolean): void {
 		this.passthrough = on ? 1 : 0;
@@ -626,15 +634,6 @@ export class TerrainRenderer {
 			return;
 		}
 
-		// Blended only while the tracks are arriving. The marker they leave in the
-		// surface buffer blends with them, which softens the outline suppression
-		// under a track for the few hundred milliseconds the fade lasts.
-		const fading = this.overlayFade < 1;
-		if (fading) {
-			gl.enable(gl.BLEND);
-			gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-		}
-
 		gl.useProgram(this.pathProgram);
 		gl.uniformMatrix4fv(u['uViewProjection'], false, this.viewProjection);
 
@@ -663,13 +662,9 @@ export class TerrainRenderer {
 			// The Milky Way is not a body that rises and sets, so it is never
 			// broken; the sun and moon are dashed below the horizon.
 			gl.uniform1f(u['uDashes'], distant ? 0 : PATH_DASHES);
-			gl.uniform1f(u['uFade'], this.overlayFade);
 			gl.drawArrays(gl.TRIANGLE_STRIP, 0, track.count);
 		}
 
-		if (fading) {
-			gl.disable(gl.BLEND);
-		}
 		gl.bindVertexArray(null);
 	}
 
@@ -711,7 +706,7 @@ export class TerrainRenderer {
 		gl.uniform1f(u['uFresnelPower'], style.fresnelPower);
 		gl.uniform1f(u['uFresnelStrength'], style.fresnelStrength);
 		gl.uniform1f(u['uNormalStrength'], style.normalStrength);
-		gl.uniform1f(u['uBodyFade'], this.overlayFade);
+		gl.uniform1f(u['uBodyFade'], this.skyFade);
 		gl.uniform3fv(u['uTrailColour'], style.trailColour);
 		gl.uniform1f(u['uTrailStrength'], style.trailStrength * this.trailFade);
 		gl.uniform1f(u['uTrailPower'], style.trailPower);

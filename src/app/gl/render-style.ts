@@ -41,17 +41,15 @@ export interface RenderStyle {
 	/** Wash behind the opening edge, and its strength */
 	trailColour: Vec3;
 	trailStrength: number;
-	/**
-	 * How quickly the wash gives way behind the edge. One falls off evenly; above
-	 * that it drops away sooner, leaving a narrower, fainter trail for the same
-	 * width. Below one it lingers.
-	 */
+	/** How quickly the wash gives way behind the edge */
 	trailPower: number;
 
 	sunColour: Vec3;
 	moonColour: Vec3;
 	/** Angular radius of a disc, in degrees */
 	discRadius: number;
+	/** How quickly the sky fades */
+	skyFadePower: number;
 	/** Track colours across the sky */
 	sunPathColour: Vec3;
 	moonPathColour: Vec3;
@@ -97,11 +95,12 @@ export const RENDER_STYLE: RenderStyle = {
 	sunColour: SUN_COLOUR,
 	moonColour: MOON_COLOUR,
 	discRadius: 0.5,
+	skyFadePower: 3,
 	sunPathColour: SUN_COLOUR,
 	moonPathColour: MOON_COLOUR,
 	pathWidth: 5,
 
 	milkyWayPathColour: [0.15, 0.15, 0.15],
 	milkyWayPassthroughColour: [1, 1, 1],
-	milkyWayWidth: 5,
+	milkyWayWidth: 3,
 };

@@ -137,14 +137,16 @@ vec4 shade(vec2 vUv) {
 	bool sky = !solid && !overlay;
 
 	float trail = solid ? pow(clamp((1.0 - colour.a) / 0.4, 0.0, 1.0), uTrailPower) : 0.0;
+
+	vec3 unlit = sky ? uSkyColour : mix(uSkyColour, colour.rgb, uBodyFade);
 	vec3 base = solid
 		? mix(colour.rgb, uTrailColour, trail * uTrailStrength)
-		: withBodies(sky ? uSkyColour : colour.rgb, vUv);
+		: withBodies(unlit, vUv);
 
 	if (!solid) {
 		// Sky is nothing but sky, so it goes entirely; a track drawn on it is
 		// ink and stays. The discs come through withBodies either way.
-		float ink = sky ? discCoverage(vUv) : 1.0;
+		float ink = sky ? discCoverage(vUv) : uBodyFade;
 		return vec4(base, ink);
 	}
 

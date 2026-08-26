@@ -46,8 +46,6 @@ precision highp float;
 uniform vec3 uPathColour;
 /** Dashes per radian; zero draws it solid */
 uniform float uDashes;
-/** Arrival of the tracks, nought to one */
-uniform float uFade;
 
 in float vAlong;
 in float vAltitude;
@@ -55,17 +53,12 @@ in float vAltitude;
 layout(location = 0) out vec4 oColour;
 layout(location = 1) out vec4 oSurface;
 
-/**
- * Below the true horizon the terrain has nothing left to say about the track:
- * the ground the app knows about has run out, or fallen away. The stretch is
- * still worth drawing — it is where the body actually went — but it is drawn
- * broken, the way an inferred line always is.
- */
 void main() {
 	if (uDashes > 0.0 && vAltitude < -0.833 && fract(vAlong * uDashes) > 0.6) {
 		discard;
 	}
-	oColour = vec4(uPathColour, uFade);
+
+	oColour = vec4(uPathColour, 1.0);
 	oSurface = vec4(0.5, 0.5, 0.25, 0.0);
 }
 `;
