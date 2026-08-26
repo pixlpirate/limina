@@ -44,6 +44,12 @@ interface PeaksApiResponse {
  */
 const REGION_FRACTION = 0.25;
 
+/**
+ * Degrees a summit may sit below the skyline and still be named. Roughly four
+ * screen pixels at the usual field of view.
+ */
+const OCCLUSION_SLACK = 0.25;
+
 /** Stillness before the skyline is rebuilt */
 const SETTLE_DELAY = 180;
 
@@ -216,14 +222,16 @@ function seen(
 	distance: number,
 	bearing: number,
 ): boolean {
+	const lifted = { ...target, up: target.up + Math.tan(OCCLUSION_SLACK * DEG) * distance };
+
 	if (horizon) {
-		const angle = Math.atan2(target.up - curvatureDrop(distance) - eye, distance) / DEG;
+		const angle = Math.atan2(lifted.up - curvatureDrop(distance) - eye, distance) / DEG;
 		const verdict = maskVerdict(horizon, bearing, distance, angle);
 		if (verdict !== 'unsure') {
 			return verdict === 'visible';
 		}
 	}
-	return hasLineOfSightAcross(rings, eye, target);
+	return hasLineOfSightAcross(rings, eye, lifted);
 }
 
 function describe(

@@ -141,7 +141,7 @@ const REVEAL_WAIT = 6;
 
 const MAX_LABELS = 40;
 /** Name band height, as a fraction of the canvas */
-const BAND_FRACTION = 0.42;
+const BAND_FRACTION = 0.33;
 /** Shortest leader worth drawing, in pixels */
 const MIN_LEADER = 16;
 /**
