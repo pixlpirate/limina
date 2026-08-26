@@ -99,11 +99,11 @@ export class Table<T> {
 
 	protected readonly visible = computed(() => {
 		const columns = this.columns();
-		const query = this.query().trim().toLowerCase();
+		const query = fold(this.query().trim());
 
 		const matching = query
 			? this.rows().filter((row) =>
-					columns.some((column) => cell(column, row).toLowerCase().includes(query)),
+					columns.some((column) => fold(cell(column, row)).includes(query)),
 				)
 			: this.rows();
 
@@ -173,6 +173,14 @@ export class Table<T> {
 /** Searchable text of one cell */
 function cell<T>(column: TableColumn<T>, row: T): string {
 	return `${column.text(row)} ${column.detail?.(row) ?? ''}`;
+}
+
+/** Normalizes search text */
+function fold(text: string): string {
+	return text
+		.normalize('NFD')
+		.replace(/\p{Diacritic}/gu, '')
+		.toLowerCase();
 }
 
 function sortable<T>(column: TableColumn<T>, row: T): string | number {
