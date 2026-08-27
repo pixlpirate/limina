@@ -150,16 +150,19 @@ vec4 shade(vec2 vUv) {
 		return vec4(base, ink);
 	}
 
-	vec2 offsets[8] = vec2[8](
-		vec2(uOutlineStep.x, 0.0),
-		vec2(-uOutlineStep.x, 0.0),
-		vec2(0.0, uOutlineStep.y),
-		vec2(0.0, -uOutlineStep.y),
-		vec2(uOutlineStep.x, uOutlineStep.y),
-		vec2(uOutlineStep.x, -uOutlineStep.y),
-		vec2(-uOutlineStep.x, uOutlineStep.y),
-		vec2(-uOutlineStep.x, -uOutlineStep.y)
-	);
+	// Declared with its precision spelled out and filled element by element. The
+	// default precision at the top of a shader does not reach array types on some
+	// Android drivers, which refuse the vec2[8](...) constructor outright with
+	// "no default precision defined for variable 'vec2[8]'".
+	highp vec2 offsets[8];
+	offsets[0] = vec2(uOutlineStep.x, 0.0);
+	offsets[1] = vec2(-uOutlineStep.x, 0.0);
+	offsets[2] = vec2(0.0, uOutlineStep.y);
+	offsets[3] = vec2(0.0, -uOutlineStep.y);
+	offsets[4] = vec2(uOutlineStep.x, uOutlineStep.y);
+	offsets[5] = vec2(uOutlineStep.x, -uOutlineStep.y);
+	offsets[6] = vec2(-uOutlineStep.x, uOutlineStep.y);
+	offsets[7] = vec2(-uOutlineStep.x, -uOutlineStep.y);
 
 	float centre = linearise(depth);
 	vec3 normalSum = vec3(0.0);
