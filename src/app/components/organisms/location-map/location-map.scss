@@ -1,6 +1,9 @@
 ﻿:host {
 	display: block;
 	position: relative;
+	// Contains Leaflet's panes and controls (z-index up to 1000) in one stacking
+	// context just below the fly-to button, which sits at 2
+	z-index: 1;
 }
 
 .location-map__canvas {
