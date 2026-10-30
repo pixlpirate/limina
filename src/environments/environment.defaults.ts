@@ -23,13 +23,6 @@ export const defaults = {
 	 */
 	demMaxZoom: 17,
 	/**
-	 * Raster basemap for the 2D picker, in two halves. The relief is drawn between
-	 * them, so the place names stay legible rather than being shaded over.
-	 */
-	basemapTileUrl: 'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
-	basemapLabelsUrl: 'https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}.png',
-	basemapAttribution: '© OpenStreetMap contributors © CARTO',
-	/**
 	 * Summit API, backed by the imported OSM database — see server/README.md.
 	 * Relative on purpose: it is published alongside the app, so a build dropped
 	 * in any folder on any host finds it without being told where.

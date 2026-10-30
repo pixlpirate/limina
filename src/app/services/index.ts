@@ -1,4 +1,5 @@
-export * from './app-update.service';
+﻿export * from './app-update.service';
+export * from './basemap.service';
 export * from './bookmarks.service';
 export * from './camera-view.service';
 export * from './camera.service';

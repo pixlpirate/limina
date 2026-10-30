@@ -1,19 +1,25 @@
-:host {
+﻿:host {
 	display: block;
 	position: relative;
 }
 
-mgl-map {
-	display: block;
+.location-map__canvas {
 	width: 100%;
 	height: 100%;
+	background-color: #0d0d0d;
+}
+
+/* The marker is centred on its point, whatever its size. */
+.location-map__pin {
+	overflow: visible;
 }
 
 .location-map__marker {
 	display: flex;
-	position: relative;
+	position: absolute;
 	justify-content: center;
 	align-items: center;
+	translate: -50% -50%;
 	border-radius: 50%;
 	background-color: var(--color-accent-1);
 	width: var(--control-size-xsmall);
@@ -28,4 +34,14 @@ mgl-map {
 		height: 6px;
 		content: '';
 	}
+}
+
+/* Plan B only: the standard OSM tiles, darkened when there is no Protomaps key. */
+.map-tiles {
+	filter: invert(1) hue-rotate(180deg) grayscale(0.85) brightness(0.75) contrast(0.9);
+}
+
+.leaflet-control-attribution {
+	filter: grayscale(1) invert(1) brightness(0.5);
+	pointer-events: none;
 }

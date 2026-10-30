@@ -48,3 +48,6 @@ Thumbs.db
 
 # Design and build sources, not part of the app
 /_ressources/
+
+# Protomaps API key
+protomaps-key.ts

@@ -1,4 +1,4 @@
-import {
+﻿import {
 	ApplicationConfig,
 	inject,
 	isDevMode,
@@ -10,8 +10,6 @@ import { provideRouter, TitleStrategy } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
-
-import { provideMaplibreWorker } from '@maplibre/ngx-maplibre-gl/config';
 
 import { AppTitleStrategy } from './app-title.strategy';
 import { routes } from './app.routes';
@@ -33,6 +31,5 @@ export const appConfig: ApplicationConfig = {
 			registrationStrategy: 'registerWhenStable:30000',
 		}),
 		provideAppInitializer(() => inject(AppUpdateService).watch()),
-		provideMaplibreWorker('maplibre-gl-worker.mjs'),
 	],
 };

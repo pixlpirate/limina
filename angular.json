@@ -1,4 +1,4 @@
-{
+﻿{
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
@@ -57,6 +57,7 @@
             "styles": [
               "src/styles/styles.scss",
               "public/fonts/fontello/css/fontello.css",
+              "./node_modules/leaflet/dist/leaflet.css",
               "./node_modules/maplibre-gl/dist/maplibre-gl.css"
             ],
             "stylePreprocessorOptions": {
