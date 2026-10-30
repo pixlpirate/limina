@@ -22,6 +22,17 @@ const ATTRIBUTION =
 const SURFACE_DARKNESS = 0.5;
 // Labels stay closer to the original colours to remain readable
 const LABEL_DARKNESS = 0.9;
+// Every surface colour is blended towards this tone, keeping SURFACE_KEEP of its own variation
+const SURFACE_BASE = '#0d0d0d';
+const SURFACE_KEEP = 0.4;
+// Road shields and road names clutter a map meant to show relief
+const HIDDEN_LAYERS = new Set([
+	'roads_shields',
+	'roads_labels_major',
+	'roads_labels_minor',
+	'roads_oneway',
+	'address_label',
+]);
 
 /**
  * The Protomaps "black" flavor, rendered by MapLibre exactly like maps.protomaps.com
@@ -82,7 +93,7 @@ export class BasemapService {
 			layers: this.withRelief(
 				layers('protomaps', this.getDarkFlavor(), {
 					lang: this.translateService.currentLang() || 'en',
-				}),
+				}).filter((layer) => !HIDDEN_LAYERS.has(layer.id)),
 			),
 		};
 	}
@@ -95,8 +106,8 @@ export class BasemapService {
 			source: 'relief',
 			paint: {
 				'hillshade-method': 'basic',
-				'hillshade-exaggeration': 0.25,
-				'hillshade-highlight-color': 'rgba(255, 255, 255, 0.125)',
+				'hillshade-exaggeration': 0.3,
+				'hillshade-highlight-color': 'rgba(255, 255, 255, 0.16)',
 				'hillshade-shadow-color': 'rgba(0, 0, 0, 0.0)',
 				'hillshade-accent-color': 'rgba(0, 0, 0, 0.0)',
 			},
@@ -119,7 +130,14 @@ export class BasemapService {
 			} else if (typeof value === 'string') {
 				const color = chroma(value);
 				const factor = key.endsWith('_label') ? LABEL_DARKNESS : SURFACE_DARKNESS;
-				colors[key] = color.set('hsl.l', color.get('hsl.l') * factor).hex();
+				const darkened = color.set('hsl.l', color.get('hsl.l') * factor);
+				// Surfaces are pulled towards one near-black so the map reads as a single
+				// tone, leaving the relief to carry the shapes
+				colors[key] = (
+					key.endsWith('_label')
+						? darkened
+						: chroma.mix(SURFACE_BASE, darkened, SURFACE_KEEP, 'rgb')
+				).hex();
 			}
 		}
 
